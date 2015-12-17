@@ -32,7 +32,7 @@ app.get("/codecademy", function (req,res) {
 });
 
 //start everything up
-var port = process.env.port ||    2010;
+var port = process.env.PORT || 8080;
 
 app.listen( port, function(){
   console.log('listening on *:' + port);
