@@ -12,25 +12,24 @@ You don't need any coding experience to apply to codeX, but it helps us to know 
 We ask all of our applicants to complete two free online coding courses.<br>
 If you've done programming at school, university, or in your own time, tell us about your projects.<br>
 </div>
-    <form action="/question2" method="POST">
+    <form action="/create" method="POST">
      	<div class="demo">
           <!-- Standard Select -->
           <div class="mdl-selectfield">
             <label>Standard Select</label>
             
-            <select class="browser-default">
-              <option value="" disabled selected><strong>Have you tried coding before?</strong></option>
-              <option value="1">No, not yet</option>
-              <option value="2">Yes, a little</option>
-              <option value="3">Yes, quite a bit</option>
-            </select>
+            <div class="">
+                  <input type="radio" name="coding_experience" value="Yes">No, not yet <br />
+                  <input type="radio" name="coding_experience" value="No"> Yes, a little<br />
+                  <input type="radio" name="coding_experience" value="No"> Yes, quite a bit
+              </div>
           </div>
       </div>
       <!-- <li class="form-line form-line-column form-col-1" data-type="control_textarea" id="id_18"> -->
         <label class="sm" id="label_18" for="input_18"><strong>If you already have lots of coding experience, tell us about it here:</strong></label>
-        <div id="cid_18" class="form-input-wide jf-required">
-          <textarea id="input_18" class="form-textarea" name="q18_ifYou18" cols="45" rows="6"></textarea>
-        </div>
+        <!-- <div id="cid_18" class="form-input-wide jf-required"> -->
+          <textarea id="input_18" class="form-textarea" cols="45" name="coding_experience_details" rows="6"></textarea>
+        <!-- </div> -->
       <!-- </li> -->
     </div>
     <div id="text_85" class="form-html">

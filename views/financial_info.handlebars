@@ -1,0 +1,56 @@
+<body>
+	<div class="content1">
+		<div class="row">
+			<h2><strong>Financial Information</strong></h2> 
+	      	<div class="sm">P 3 of 5</div>
+	      	<form action="/applicationForm/financial_info/{{_id}}" method="POST">
+			 	<input type="hidden" name="_id" value="{{_id}}">
+			 	<h6>Do you need financial support</h6>
+				<div class="">
+       				<input type="radio" name="financial_supp" value="yes">Yes<br />
+       				<input type="radio" name="financial_supp" value="no">No<br />
+    			</div>
+    			<div class="personalHd"><strong>What is your household income?</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="household_income"required/>
+				    	<label>household income</label>
+				    	<h6>What is the total amount earned by people in your household</h6>
+				    </div>
+				<div class="personalHd"><strong>How many people live in your household?</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="household_people"required/>
+				    	<label>Number of people</label>
+				    </div>
+				<div class="personalHd"><strong>How will you cover your travel cost to codeX?</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="travel_cost" required/>
+				    	<label>Travel cost</label>
+				    	<h6>Depending on where you live, you may need to travel by train,bus, or MyCiti.</h6>
+				    </div>
+				    <h6>Please provide us with the contact details of the person responsible for your payments</h6>
+				    <div class="personalHd"><strong>First Name</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="responsiblePerson_name"required/>
+				    	<label>First Name</label>
+				    </div>
+				    <div class="personalHd"><strong>Last Name</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="responsiblePerson_lastname"required/>
+				    	<label>Last Name</label>
+				    </div>
+				    <div class="personalHd"><strong>Phone Number</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="responsiblePerson_phoneNumber"required/>
+				    	<label>Phone Number</label>
+				    </div>
+				    <div class="personalHd"><strong>Email address</strong></div>
+				  	<div class="question">
+				    	<input type="text" name="responsiblePerson_email"required/>
+				    	<label>Email address</label>
+				    </div>
+				    <br />
+				<input type="submit"></input>
+			</form>
+		</div>
+	</div>
+</body>
