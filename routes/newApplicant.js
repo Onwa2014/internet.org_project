@@ -11,7 +11,8 @@ exports.application = function(req, res, next){
 
 	var applicationData = {
         got_experience : req.body.coding_experience,
-        experience : req.body.coding_experience_details
+        experience : req.body.coding_experience_details,
+        codecademyEmail:req.body.codecademyEmail
     };
 
     MongoClient.connect(url, function(err, db) {
