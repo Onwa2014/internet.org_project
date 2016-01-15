@@ -47,10 +47,11 @@ h1 {
   
 }
 nav {
+	width: 100%
     display: table;
     margin: -9px auto;
     box-shadow: 0px 2px 0px #023333;
-    margin-bottom: 92px;
+    margin-bottom: 40px;
 }
 ul {
 	margin:0;
