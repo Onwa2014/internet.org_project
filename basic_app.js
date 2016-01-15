@@ -19,6 +19,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+
 
 
  // Connection URL 
