@@ -1,0 +1,20 @@
+{
+  "name": "free_basic_mobile_app",
+  "description": "**Mobile Operators** Over 85% of the world’s population lives in areas with existing cellular coverage, but mobile data is expensive and hard for people to justify when they haven’t experienced the benefits of the internet. By partnering with mobile operators, people experience the knowledge and inspiration that comes from access to basic websites, for free.",
+  "main": "basic_app.js",
+  "license": "ISC",
+  "homepage": "https://github.com/Oyamasiphula/free_basic_mobile_app",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4",
+    "font-awesome": "~4.5.0"
+  }
+}
