@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
  //var io = require('socket.io');
+ mongodb = require('mongodb')
  
  //Connect to mongodb [ConnectionURL]
  var url = 'mongodb://localhost:27017/free_basics';
@@ -16,6 +17,7 @@ var MongoClient = require('mongodb').MongoClient;
       };
   
       MongoClient.connect(url, function(err, db) {
+      	if (err) return next(err);
          var applications = db.collection('applications');
          applications
              .insertOne(applicationData)
