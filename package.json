@@ -1,0 +1,26 @@
+{
+  "name": "internet.org_project",
+  "version": "0.0.0",
+  "description": "",
+  "main": "basic_app.js",
+  "dependencies": {
+    "express": "~4.13.3",
+    "express-handlebars": "~2.0.1",
+    "mongodb": "~2.0.55",
+    "bower": "~1.7.2",
+    "handlebars": "~4.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Onwa2014/internet.org_project.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Onwa2014/internet.org_project/issues"
+  }
+}

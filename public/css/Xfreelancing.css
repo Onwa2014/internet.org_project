@@ -1,6 +1,4 @@
-body{
-  font-family: 'Muli', sans-serif;
-}
+
 * {
   font-weight: light;
   -webkit-font-smoothing: antialiased;
@@ -19,9 +17,15 @@ body {
   background: radial-gradient(ellipse at center, #4c4c4c 0%, #131313 84%, #131313 100%);
   max-width: 445px;
   margin: 0 auto;
-  font-family: "Open Sans", sans-serif;
-  letter-spacing: .9px;
+  font-family: 'Muli', sans-serif;
+/*  font-family: "Open Sans", sans-serif;
+*/  letter-spacing: .9px;
 }
+div .opt { 
+  resize: horizontal;
+  width: 0px;
+}
+
 .question {
     resize: both;
     overflow: auto;
@@ -264,19 +268,20 @@ form .question {
     position: relative;
     padding: 40px 6px;}
 form .question label {
-    transform-origin: center;
-    color: #18940C;
-    font-weight: 100;
-    letter-spacing: 0.01em;
-    font-size: 17px;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    display: block;
-    position: absolute;
-    margin-top: -40px;
-    z-index: 2;
-    pointer-events: none;
+  transform-origin: center;
+  color: #18940C;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  font-size: 12px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  display: block;
+  position: absolute;
+  margin-top: -40px;
+  z-index: 2;
+  pointer-events: none;
 }
+
 form .question input[type="text"] {
     background-color: none;
     border: 1px solid #6C9816;

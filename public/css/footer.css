@@ -31,15 +31,17 @@ footer small.shrinked {
 }
 
 .social {
-    padding: 6px;
-    display: inline-table;
-    font-family: Entypo;
-    font-size: 20px;
-    color: rgba(72, 56, 56, 0.91);
-    border-radius: 50%;
-    background: rgb(220, 220, 220);
-    overflow: hidden;
-    transition: color .3s;
+  display: inline-table;
+  font-family: Entypo;
+  font-size: 20px;
+  color: rgba(72, 56, 56, 0.91);
+  border-radius: 50%;
+  background: rgb(220, 220, 220);
+  overflow: hidden;
+  transition: color .3s;
+  padding-left: 5;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }
 .social:hover {
   color: #59d;
