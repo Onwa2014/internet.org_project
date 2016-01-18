@@ -2,7 +2,7 @@
   "name": "internet.org_project",
   "version": "0.0.0",
   "engine": {
-    node:"0.10.25"
+    "node":"0.10.25"
   },
   "description": "",
   "main": "basic_app.js",
