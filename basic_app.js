@@ -24,7 +24,7 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 
  // Connection URL 
- var url = 'mongodb://localhost:27017/free_basics';
+ var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
  
  var paths = {
     "question1" : "question2",
