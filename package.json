@@ -2,7 +2,7 @@
   "name": "internet.org_project",
   "version": "0.0.0",
   "engine": {
-    "node":"0.10.25"
+    "node": "0.10.25"
   },
   "description": "",
   "main": "basic_app.js",
@@ -11,7 +11,9 @@
     "express-handlebars": "~2.0.1",
     "mongodb": "~2.0.55",
     "bower": "~1.7.2",
-    "handlebars": "~4.0.5"
+    "handlebars": "~4.0.5",
+    "nodemailer": "~2.0.0",
+    "body-parser": "~1.14.2"
   },
   "devDependencies": {},
   "scripts": {
