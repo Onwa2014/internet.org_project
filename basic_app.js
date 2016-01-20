@@ -106,15 +106,7 @@ app.post('/applicationForm/financial_info/:id', function (req,res) {
   console.log(_id);
 
     var applicationFields = {
-        financial_support : req.body.financial_supp,
-        household_income : req.body.household_income,
-        household_people: req.body.household_people,
-        travel_cost: req.body.travel_cost,
-        responsiblePerson_name: req.body.responsiblePerson_name,
-        responsiblePerson_lastname: req.body.responsiblePerson_lastname,
-        responsiblePerson_phoneNumber: req.body.responsiblePerson_phoneNumber,
-        responsiblePerson_email: req.body.responsiblePerson_email,
-        ref_email_add: req.body.ref_email_add
+        financial_support : req.body.financial_supp
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -122,7 +114,12 @@ app.post('/applicationForm/financial_info/:id', function (req,res) {
         applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
-                res.redirect('/applicationForm/about_you/' + _id );
+               if (applicationFields.financial_support === "yes") {
+                  res.redirect('/applicationForm/sponsorship_required/' + _id );
+               }
+               else {
+                  res.redirect('/applicationForm/sponsorship_not_required/' +  _id);
+               }   
             })
             .catch(function(err){
                 // log the error to the console for now
@@ -131,6 +128,78 @@ app.post('/applicationForm/financial_info/:id', function (req,res) {
             });
     });
 });
+
+app.get('/applicationForm/sponsorship_required/:id',function (req,res){
+  var route = req.path;
+  console.log("http:/" + route)
+  res.render("sponsorship_required", {_id : req.params.id });
+});
+
+app.post('/applicationForm/sponsorship_required/:id', function (req,res) {
+  var _id = req.params.id;
+
+  console.log("vivi");
+  console.log(req.body);
+  console.log(_id);
+
+    var applicationFields = {
+        household_income: req.body.household_income,
+        household_people: req.body.household_people,
+        travel_cost:req.body.travel_cost
+    };
+
+    MongoClient.connect(url, function(err, db) {
+        var applications = db.collection('applications');
+        applications
+            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
+            .then(function(result){
+                  res.redirect('/applicationForm/about_you/' + _id ); 
+            })
+            .catch(function(err){
+                // log the error to the console for now
+                console.log(err);
+                res.send(err.stack);
+            });
+    });
+});
+
+
+app.get('/applicationForm/sponsorship_not_required/:id',function (req,res){
+  var route = req.path;
+  console.log("http:/" + route)
+  res.render("sponsorship_not_required", {_id : req.params.id });
+});
+
+app.post('/applicationForm/sponsorship_not_required/:id', function (req,res) {
+  var _id = req.params.id;
+
+  console.log("iviwe");
+  console.log(req.body);
+  console.log(_id);
+
+    var applicationFields = {
+        responsiblePerson_name: req.body.responsiblePerson_name,
+        responsiblePerson_lastname: req.body.responsiblePerson_lastname,
+        responsiblePerson_phoneNumber:req.body.responsiblePerson_phoneNumber,
+        responsiblePerson_email:req.body.responsiblePerson_email
+    };
+
+    MongoClient.connect(url, function(err, db) {
+        var applications = db.collection('applications');
+        applications
+            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
+            .then(function(result){
+                  res.redirect('/applicationForm/about_you/' + _id ); 
+            })
+            .catch(function(err){
+                // log the error to the console for now
+                console.log(err);
+                res.send(err.stack);
+            });
+    });
+});
+
+
 app.get("/applicationForm/about_you/:id", function (req,res) {
       var route = req.path;
       console.log("http:/" + route)
