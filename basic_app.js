@@ -52,7 +52,7 @@ app.post('/applicationForm',newApplicant.application);
 
 app.get("/applicationForm/question2/:id", function (req,res) {
     var route = req.path;
-    console.log("http:/" + route)
+    console.log("http://localhost:8080" + route)
     res.render("question2", {_id : req.params.id });
  });
 app.post('/applicationForm/question2/:id', function (req,res) {
@@ -65,6 +65,7 @@ app.post('/applicationForm/question2/:id', function (req,res) {
     var applicationFields = {
         first_name : req.body.first_name,
         last_name : req.body.last_name,
+        id_number: req.body.id_number,
         email_address: req.body.email_address,
         phone_number: req.body.phone_number,
         dateofbirth: req.body.date_of_birth,
