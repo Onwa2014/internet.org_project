@@ -45,9 +45,9 @@ div .opt {
     background: transparent;
     height: 60px;
     display: -webkit-box;
-    display: -webkit-flex;
+    display: flex; */
+    display: -webkit-flex; */
     display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
@@ -55,8 +55,7 @@ div .opt {
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    width: 100%;
-}
+  }
 .mobile-layout a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.7);
@@ -116,9 +115,9 @@ div .opt {
 }
 
 .content {
-   color: darkgreen;
+    color: darkgreen;
     display: block;
-    background-color: #8bc53f;
+    background-color: #DEECCC;
     padding: 5px;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 12px;
@@ -147,15 +146,15 @@ div .opt {
   letter-spacing: 1.5px;
 }
 .content p {
-  color: #727272;
-  font-weight: 300;
-  font-family: "Open Sans", sans-serif;
-  line-height: 23px;
-  margin: 0;
-  margin-left: 35px;
-  margin-right: 35px;
-  font-size: .9rem;
-  padding-top: 50px;
+    color: #498219;
+    font-weight: 300;
+    font-family: "Open Sans", sans-serif;
+    line-height: 23px;
+    margin: 0;
+    margin-left: 35px;
+    margin-right: 35px;
+    font-size: .9rem;
+    padding-top: 50px;
 }
 .content p:last-child {
   padding-top: 40px;
@@ -248,7 +247,7 @@ form button.save {
 form button.back {
         background-color: #009c75;
 }
-form button.next {
+button.next {
   float: right;
 }
 form button:hover, form button:focus {
@@ -648,11 +647,11 @@ label .sm {
      width: 600px; padding: 5px;
 }
 
-input {
+/*input {
     text-align: center;
     border-radius: 10px;
     border-color: mediumspringgreen;
-}
+}*/
 .person{
   display: -webkit-inline-box;
 }
