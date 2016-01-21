@@ -18,10 +18,10 @@ If you've done programming at school, university, or in your own time, tell us a
           <div class="mdl-selectfield">
             <label>Standard Select</label>
             
-            <div class="">
-                  <input type="radio" name="coding_experience" value="No,not yet">No, not yet
-                  <input type="radio" name="coding_experience" value="Yes, a little">Yes, a little
-                  <input type="radio" name="coding_experience" value="Yes,quite a bit">Yes, quite a bit
+            <div class="radio">
+                  <input type="radio" name="coding_experience" value="No,not yet" required>No, not yet
+                  <input type="radio" name="coding_experience" value="Yes, a little" required>Yes, a little
+                  <input type="radio" name="coding_experience" value="Yes,quite a bit" required>Yes, quite a bit
               </div>
           </div>
       </div>
@@ -29,15 +29,10 @@ If you've done programming at school, university, or in your own time, tell us a
         <label class="text-content" id="label_18" for="input_18"><strong>If you already have lots of coding experience, tell us about it here:</strong></label>
         <!-- <div id="cid_18" class="form-input-wide jf-required"> -->
           <textarea 
-            type="text" cols="20" name="coding_experience_details" rows="3" id="myTextArea"
-
-            id="input_18" class="form-textarea" cols="20" name="coding_experience_details" rows="3"></textarea>
-        <!-- </div> -->
-      <!-- </li> -->
-    </div>
+            type="text" cols="28" name="coding_experience_details" rows="3,5" id="myTextArea" id="input_18" class="form-textarea" ></textarea>
+       </div>
     <div id="cid_15" class="form-input-wide">
               <div id="text_15" class="form-html">
-
                 <h3>
                   Codecademy
                 </h3>
@@ -48,27 +43,74 @@ If you've done programming at school, university, or in your own time, tell us a
                 <strong>No internet access?<br></strong>Don't worry! If you don't have internet access, check out the <a target="_blank" title="codeX Open Days" href="http://www.projectcodex.co/codeX-Open-Days/index.html">codeX Open Days</a> to find a venue near you.</div>
               </div>
             </div>
-            <h3>Codecademy email address</h3>
+            <h5>Codecademy email address</h5>
           <span class="form-required">
           </span>
         </label>
-        <form>
+        <div class="question" >
+              <input type="text" name="email_address" required/>
+              <label>Email Address</label>
+            </div>
           <div id="cid_50" class="form-input-wide jf-required">
             <span class="form-sub-label-container" style="vertical-align: top">
-              <input type="text" class=" form-textbox validate[required, Email]" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="" required>
+              <input type="text" class="form-textbox validate[required, Email]" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="" required>
               <label class="text-content" for="input_50" style="min-height: 13px;"><br> Tell us your email address that you used to register on codecademy.com courses. We will send you an invite so that we can see how you are progressing through Codecademy. </label>
             </span>
           </div>
           <div id="text_85" class="form-html">
-            <p class="text-content" style="text-align:center;">Please&nbsp;note this form has&nbsp;5 sections&nbsp;to complete. <br>At the end of the form you must mark your application as "Complete" in order to submit the application.</p>
+            <p class="text-content" style="text-align:center;"><small>
+              Please&nbsp;note this form has &nbsp;5 sections&nbsp;to complete.
+            At the end of the form you must mark your application as "Complete" in order to submit the application.</small></p>
           </div>
 
           <div class="form-pagebreak">
                 <div class="form-pagebreak-next-container">
                   <button class="next">next</button>
-                </div>
+                </div> 
           </div>
     </form>
   </div>
 
 </body>
+
+<style type="text/css">
+
+form button {
+    margin-top: 35px;
+    margin-left: 15px;
+    background-color: rgba(139, 197, 63, 0.46);
+    border: 1px solid #8bc53f;
+    line-height: 0;
+    font-size: 17px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    border-radius: 0.5em;
+    color: #1A1B1B;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    position: relative;
+    /* float: right; */
+}
+
+form button.save {
+    text-align: center;
+    position: relative;
+    background-color: rgba(93, 255, 74, 0.38);
+    color: forestgreen;
+    margin:auto;
+    bottom: 5px;
+    left: 30%;
+}
+form button.back {
+        background-color: #009c75;
+}
+form button.next  {
+  float: right;
+}
+form button:hover, form button:focus {
+    /* color: #30843c; */
+    background-color: #8bc53f;
+    /*color: #ff4a56;*/
+}
+</style>
