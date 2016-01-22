@@ -6,85 +6,87 @@
 
 			<form action="/applicationForm/question2/{{_id}}" method="POST">
 			 	<input type="hidden" name="_id" value="{{_id}}">
-				<div class="personalHd"><strong>YOUR FULL NAME</strong></div>
+<div class="personalHd"><strong>YOUR FULL NAME</strong></div>
 				<div class="person" >
 			  	<div class="question" >
-				    	<input type="text" name="first_name"required/>
+				    	<input type="text" maxlength="40"  name="first_name"required/>
 				    	<label>First Name</label>
 				  	</div>
 				  	<div class="question" >
-				    	<input type="text" name="last_name" required/>
+				    	<input type="text" maxlength="40" name="last_name" required/>
 				    	<label>Last Name</label>
 				  	</div>
 				  	</div>
-				  	<div class="personalHd"><strong>ID NUMBER</strong></div>
+<div class="personalHd"><strong>ID NUMBER</strong></div>
 				  	<div class="question" >
-				    	<input type="text" name="id_number" required/>
+				    	<input type="text" name="id_number" minlength="13" maxlength="13" required/>
 				    	<label>ID number</label>
 				  	</div>
-				<div class="personalHd"><strong>YOUR EMAIL ADDRESS</strong></div>
+<div class="personalHd"><strong>YOUR EMAIL ADDRESS</strong></div>
 				  	<div class="question" >
-				    	<input type="text" name="email_address" required/>
+				    	<input type="text" maxlength="40" name="email_address" required/>
 				    	<label>Email Address</label>
 				  	</div>
-  					<div class="personalHd"><strong>YOUR PHONE NUMBER</strong></div>
+<div class="personalHd"><strong>YOUR PHONE NUMBER</strong></div>
 				  	<div class="question" >
-				    	<input type="text" name="phone_number" required/>
+				    	<input type="text" name="phone_number" minlength="10" maxlength="11" required/>
 				    	<label>Phone no:</label>
 				  	</div>
 
-				  	<div class="personalHd"><strong>YOUR DATE OF BIRTH</strong></div>
+<div class="personalHd"><strong>YOUR DATE OF BIRTH</strong></div>
 				  	<div class="question" >
 				    	<input type="date" name="date_of_birth" required/>
 				  	</div>
 
-				  	<div class="personalHd"><strong>City you live in</strong></div>
+<div class="personalHd"><strong>CITY YOU LIVE IN</strong></div>
 				  	<div class="question" >
-				    	<input type="text" name="city" required/>
+				    	<input type="text" maxlength="40" name="city" required/>
 				    	<label>City</label>
-				    	<h6>CodeX is a full time course and is currently running in Cape Town. All participants must be in the Cape Town area.
+				    	<xsmall>CodeX is a full time course and is currently running in Cape Town. All participants must be in the Cape Town area.</xsmall>
 				  	</div>
-				  		<div class="personalHd"><strong>Education and Experience</strong></div>
+<div class="personalHd"><strong>EDUCATION AND EXPERIANCE</strong></div>
 				  		<div class="question">
 				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" cols="25" rows="3"></textarea>
-				  		<h6>Tell us what level of education you have,where you studied and whether you have experience <ins></ins> any field.</h6>
+				  		<xsmall>Tell us what level of education you have,where you studied and whether you have experience any field.</xsmall>
 				  		</div>
 
-				  		<h6><strong>Character references</strong></h6>
-				  		<h6>We need contact details of someone outside of your family who knows you who can vouch for your character and talent.</h6>
-
-				  		<h6>This could be someone you've worked with,or who taught or mebtored you,or someone else professionally qualified.</h6>
-
-				  		<div class="personalHd"><strong>Reference name and surname</strong></div>
+				  		<h4><strong>Character references</strong></h4>
+				  		<div class="text-content">
+				  		We need contact details of someone outside of your family who knows you who can vouch for your character and talent.
+				  		This could be someone you've worked with,or who taught or mentored you,or someone else professionally qualified.
+				  		</div>
+				  		<br>
+<div class="personalHd"><strong>REFERENCE NAME AND SURNAME</strong></div>
 				  		<div class="question">
-				    		<input type="text" name ="ref_name_and_surname" required/>
+				    		<input type="text" maxlength="50" name ="ref_name_and_surname" required/>
 				    		<label>name and surname</label>
 				  		</div>
 
-				  		<div class="personalHd"><strong>EMAIL ADDRESS</strong></div>
+<div class="personalHd"><strong>EMAIL ADDRESS</strong></div>
 				  		<div class="question">
-				    		<input type="text" name="ref_email_add" required/>
+				    		<input type="text" maxlength="40" name="ref_email_add" required/>
 				    		<label>Email Address</label>
-				    		<h6>Email address for your reference</h6>
+				    		<xsmall>Email address of  your references</xsmall>
 				    	</div>
 
-				    	<div class="personalHd"><strong>PHONE NUMBER</strong></div>
+<div class="personalHd"><strong>PHONE NUMBER</strong></div>
 				  		<div class="question">
-				    		<input type="text" name="ref_phone_number" required/>
+				    		<input type="text" minlength="10" maxlength="11" name="ref_phone_number" required/>
 				    		<label>Phone no:</label>
 				  		</div>
-				  		<h6>My reference was my</h6>
-				  		<div class="">
+<div class="personalHd" ><strong> MY REFERENCE WAS MY</strong></div>
+				  		<div class="question">
        						<input type="radio" name="relationship" value="mentor">Mentor<br />
        						<input type="radio" name="relationship" value="teacher">Teacher<br />
        						<input type="radio" name="relationship" value="employer">Employer<br />
-       						<input type="radio" name="relationship" value="other"><input type="text" placeholder="Other">
+       						<input type="radio" name="relationship" value="other">
+       						<input type="text" maxlength="40"><label>Other</label>
     					</div>
     					<div class="form-pagebreak">
           					<div class="form-pagebreak-next-container">
-            					<button class="btn btn-4 btn-4a icon-arrow-right">next</button>
+            					<button class="next">next</button>
           					</div>
- 						 </div>
+ 						</div>
 			</form>
 		</div>
 	</div>
