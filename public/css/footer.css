@@ -60,3 +60,6 @@ footer small.shrinked {
     content: "\f283";
     display: block;
 }
+.fa {
+    font-size: 20px;
+}
