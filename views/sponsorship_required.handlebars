@@ -2,25 +2,32 @@
 		<div class="row">
 			<h2><strong>Financial Information</strong></h2> 
 	      	<div class="sm">P 3 of 5</div>
+
 	      	<form action="/applicationForm/sponsorship_required/{{_id}}" method="POST">
-				<div class="personalHd"><strong>What is your household income?</strong></div>
+				<div class="personalHd"><strong>WHAT IS YOUR HOUSEHOLD INCOME ?</strong></div>
 				  	<div class="question">
-				    	<input type="text" name="household_income"required/>
-				    	<label>household income</label>
-				    	<h6>What is the total amount earned by people in your household</h6>
+				    	<input type="text" name="household_income" maxlength="10"  required/>
+				    	<label>Household income</label>
+				    	<xsmall>What is the total amount earned by people in your household</xsmall>
 				    </div>
-				<div class="personalHd"><strong>How many people live in your household?</strong></div>
+				<div class="personalHd"><strong>HOW MANY PEOPLE LIVE IN YOUR HOUSEHOLD?</strong></div>
+				<br>
 				  	<div class="question">
-				    	<input type="text" name="household_people"required/>
+				    	<input type="text" name="household_people" maxlength="2" required/>
 				    	<label>Number of people</label>
 				    </div>
-				<div class="personalHd"><strong>How will you cover your travel cost to codeX?</strong></div>
+				<div class="personalHd"><strong>HOW WILL YOU COVER YOUR TRAVEL COST TO codeX?</strong></div>
+				<br>
 				  	<div class="question">
-				    	<input type="text" name="travel_cost" required/>
+				    	<input type="text" name="travel_cost" maxlength="200" required/>
 				    	<label>Travel cost</label>
-				    	<h6>Depending on where you live, you may need to travel by train,bus, or MyCiti.</h6>
+				    	<xsmall>Depending on where you live, you may need to travel by train,bus, or MyCiti.</xsmall>
 				    </div>
-				    <button class="btn btn-4 btn-4a icon-arrow-right">next</button>
+				   <div class="form-pagebreak">
+	 					<div class="form-pagebreak-next-container">
+	   					<button class="next">next</button>
+	 					</div>
+					</div>
 			</form>
 		</div>
 	</div>
