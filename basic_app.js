@@ -48,8 +48,6 @@ app.get('/applicationForm',function (req,res, next){
 
 app.post('/applicationForm',newApplicant.application);
 
-
-
 app.get("/applicationForm/question2/:id", function (req,res) {
     var route = req.path;
     console.log("http://localhost:8080" + route)
