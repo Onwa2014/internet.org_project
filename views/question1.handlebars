@@ -1,37 +1,30 @@
-<body >
-
 <div class="content">
   <div class="row">
   <h2><strong>Apply to become a codeX coder</strong></h2> 
     <small>Our first term for 2016 runs full-time in Cape Town from Feb - Dec 2016</small>
   <h3>View our Curriculum</h3> 
 
-<div class="text-content">codeX runs on project-driven learning. Check out our unique industry-fit <a title="codeX Curriculum" href="http://www.projectcodex.co/content/curriculum.html" target="_blank">curriculum</a>.<br>
+<div class="text-content">codeX runs on project-driven learning. Check out our unique industry-fit <a title="codeX Curriculum" href="http://www.projectcodex.co/content/curriculum.html" target="_blank">curriculum</a>.
+  <br>
+  <br>
 <strong>Tell us about your coding experience</strong><br>
 You don't need any coding experience to apply to codeX, but it helps us to know whether you have.<br>
 We ask all of our applicants to complete two free online coding courses.<br>
 If you've done programming at school, university, or in your own time, tell us about your projects.<br>
 </div>
     <form action="/applicationForm" method="POST">
-     	<div class="demo">
-          <!-- Standard Select -->
-          <div class="mdl-selectfield">
-            <label>Standard Select</label>
-            
-            <div class="radio">
-                  <input type="radio" name="coding_experience" value="No,not yet" required>No, not yet
-                  <input type="radio" name="coding_experience" value="Yes, a little" required>Yes, a little
-                  <input type="radio" name="coding_experience" value="Yes,quite a bit" required>Yes, quite a bit
-              </div>
+            <label class="text-content" id="label_18" for="input_18"><strong>Have you tried coding before?</strong></label>
+          <div class="">
+                  <input type="radio" style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="coding_experience" value="No,not yet" required>No, not yet <br>
+                  <input type="radio" style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="coding_experience" value="Yes, a little" required>Yes, a little <br>
+                  <input type="radio" style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="coding_experience" value="Yes,quite a bit" required>Yes, quite a bit <br>
           </div>
-      </div>
-      <!-- <li class="form-line form-line-column form-col-1" data-type="control_textarea" id="id_18"> -->
-        <label class="text-content" id="label_18" for="input_18"><strong>If you already have lots of coding experience, tell us about it here:</strong></label>
-        <!-- <div id="cid_18" class="form-input-wide jf-required"> -->
-          <textarea 
-            type="text" cols="28" name="coding_experience_details" rows="3,5" id="myTextArea" id="input_18" class="form-textarea" ></textarea>
+          <br>
+              <label class="text-content" id="label_18" for="input_18"><strong>If you already have lots of coding experience, tell us about it here:</strong>
+              </label>
+              <textarea type="text" cols="28" name="coding_experience_details" rows="3,5" id="myTextArea" id="input_18" class="form-textarea" ></textarea>
        </div>
-    <div id="cid_15" class="form-input-wide">
+        <div id="cid_15" class="form-input-wide">
               <div id="text_15" class="form-html">
                 <h3>
                   Codecademy
@@ -44,7 +37,7 @@ If you've done programming at school, university, or in your own time, tell us a
                 <br>
                 <strong>No internet access?<br></strong>Don't worry! If you don't have internet access, check out the <a target="_blank" title="codeX Open Days" href="http://www.projectcodex.co/codeX-Open-Days/index.html">codeX Open Days</a> to find a venue near you.</div>
               </div>
-            </div><br>
+        </div><br>
             <h5>Codecademy email address</h5>
           <span class="form-required">
           </span>
@@ -52,7 +45,7 @@ If you've done programming at school, university, or in your own time, tell us a
           <div id="cid_50" class="form-input-wide jf-required">
             <span class="form-sub-label-container" style="vertical-align: top">
               <input type="text" class="form-textbox validate[required, Email]" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="" required>
-              <label class="text-content" for="input_50" style="min-height: 13px;"><br><small>Tell us your email address that you used to register on codecademy.com courses. We will send you an invite so that we can see how you are progressing through Codecademy.</small></label>
+              <label class="text-content" for="input_50" ><br><small>Tell us your email address that you used to register on codecademy.com courses. We will send you an invite so that we can see how you are progressing through Codecademy.</small></label>
             </span>
           </div>
           <div id="text_85" class="form-html">
@@ -62,10 +55,10 @@ If you've done programming at school, university, or in your own time, tell us a
           </div>
 
           <div class="form-pagebreak">
-                <div class="form-pagebreak-next-container">
-                  <button class="next">next</button>
-                </div> 
+              <div class="form-pagebreak-next-container">
+                <button class="next">next</button>
+              </div>
           </div>
+        </div>
     </form>
   </div>
-</body>
