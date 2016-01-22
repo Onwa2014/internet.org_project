@@ -167,13 +167,6 @@ div .opt {
     padding-top: 18px;
 }
 
-.form-pagebreak {
-    margin: 0 36px;
-    border-top: 1px solid #e3e3e3;
-    background: transparent;
-    height: auto;
-    overflow: hidden;
-}
 footer {
   width: 100%;
   height: 70px;
@@ -633,7 +626,7 @@ select:focus {
 }
 .form-pagebreak {
     margin: 0 36px;
-    border-top: 1px solid #e3e3e3;
+    border-top: 1px solid #BCBCBC;
     background: transparent;
     height: auto;
     overflow: hidden;
@@ -647,8 +640,8 @@ select:focus {
   left: 0;
 }
 /*select style above*/
-.row{
-    margin: 50px;
+.row {
+    margin: 30px;
 }
 img {
     height: 59px;
@@ -675,16 +668,20 @@ div .personalHd {
     position: fixed;
     line-height: 18px;
 }
-label .sm {
-     font-size: smaller;
-     width: 600px; padding: 5px;
+label small {
+    padding: 3px;
+    font-size: x-small;
+    line-height: normal;
+    display: flex;
+}
+xsmall {
+    padding: 3px;
+    font-size: x-small;
+    line-height: normal;
+    display: flex;
 }
 
-/*input {
-    text-align: center;
-    border-radius: 10px;
-    border-color: mediumspringgreen;
-}*/
 .person{
   display: -webkit-inline-box;
 }
+
