@@ -245,17 +245,50 @@ form button.save {
     left: 30%;
 }
 form button.back {
-        background-color: #009c75;
+  background-color: #009c75;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  border: 1px solid #8bc53f;
+  line-height: 0;
+  font-size: 17px;
+  display: inline-block;
+  border-radius: 0.5em;
 }
 button.next {
+  background-color: rgba(139, 197, 63, 0.46);
   float: right;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  border: 1px solid #8bc53f;
+  line-height: 0;
+  font-size: 17px;
+  display: inline-block;
+  border-radius: 0.5em;
 }
 form button:hover, form button:focus {
     /* color: #30843c; */
     background-color: #8bc53f;
     /*color: #ff4a56;*/
 }
-
+form button {
+    margin-top: 35px;
+    margin-left: 15px;
+    background-color: rgba(139, 197, 63, 0.46);
+    border: 1px solid #8bc53f;
+    line-height: 0;
+    font-size: 17px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    border-radius: 0.5em;
+    color: #1A1B1B;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    position: relative;
+    /* float: right; */
+}
 form .question {
   position: relative;
   padding: 10px 0;
