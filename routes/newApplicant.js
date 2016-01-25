@@ -41,3 +41,25 @@ var MongoClient = require('mongodb').MongoClient;
  
  	
  };
+ exports.saveforLater = function(req,res,next){
+  var route = req.path;
+    console.log(route)
+  MongoClient.connect(url, function(err, db){
+    if(err){
+      console.log(err,"\n");
+    }
+      var applications = db.collection('applications');   
+      
+      // what I am looking for...
+      applications.find({}, {
+        "first_name": 1,
+        "route": 1,
+        "aplication_status": 1
+      }); 
+      db.close();
+      return res.render('save_for_later',{
+
+      });           
+  });
+};
+ 

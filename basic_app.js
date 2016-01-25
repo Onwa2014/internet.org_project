@@ -39,6 +39,8 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get("/", function (req,res) {
     res.render("home")
 });
+app.get('/save_for_later',newApplicant.saveforLater);
+    
 
 app.get('/applicationForm',function (req,res, next){
     var route = req.path;
@@ -57,10 +59,30 @@ app.get("/applicationForm/question2/:id", function (req,res) {
  });
 app.post('/applicationForm/question2/:id', function (req,res) {
 	var _id = req.params.id;
+  var route = req.path;
+    console.log("http://localhost:8080" + route)
+    console.log("zonke");
+    console.log(req.body);
+    console.log(_id);
 
-	console.log("zonke");
-	console.log(req.body);
-  console.log(_id);
+    // check which button was pressed
+    
+    //console.log(req.body.nextBtn);
+    //console.log(req.body.saveForLaterBtn);
+
+    var whatToDo = "";
+
+    var NEXT = "nextScreen";
+    var SAVE_FOR_LATER = "saveForLater";
+
+    if (req.body.nextBtn !== undefined ){
+      console.log("next button pressed");
+      whatToDo = NEXT;
+    }
+    else if (req.body.saveForLaterBtn !== undefined){
+      console.log("save for later button pressed")
+      whatToDo = SAVE_FOR_LATER;
+    }
 
     var applicationFields = {
         first_name : req.body.first_name,
@@ -74,7 +96,9 @@ app.post('/applicationForm/question2/:id', function (req,res) {
         ref_name_and_surname: req.body.ref_name_and_surname,
         ref_email_add: req.body.ref_email_add,
         ref_phone_number: req.body.ref_phone_number,
-        relationship: req.body.relationship
+        relationship: req.body.relationship,
+        route:"http://localhost:8080"+req.path,
+        application_status: "In Progress"
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -82,7 +106,15 @@ app.post('/applicationForm/question2/:id', function (req,res) {
         applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
+
+              if(whatToDo === NEXT){
                 res.redirect('/applicationForm/financial_info/' + _id );
+              }
+              else{
+                // todo send email...
+                res.render("save_for_later", applicationFields)
+              }
+
             })
             .catch(function(err){
                 // log the error to the console for now
@@ -105,9 +137,14 @@ app.post('/applicationForm/financial_info/:id', function (req,res) {
   console.log("yolanda");
   console.log(req.body);
   console.log(_id);
+    
+
+
 
     var applicationFields = {
-        financial_support : req.body.financial_supp
+        financial_support : req.body.financial_supp,
+        route:"http://localhost:8080"+req.path,
+        application_status: "In Progress"
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -120,8 +157,16 @@ app.post('/applicationForm/financial_info/:id', function (req,res) {
                }
                else {
                   res.redirect('/applicationForm/sponsorship_not_required/' +  _id);
-               }   
+               }
+                if(whatToDo === NEXT){
+                res.redirect('/applicationForm/financial_info/' + _id );
+              }
+              else{
+                // todo send email...
+                res.render("save_for_later", applicationFields)
+              }   
             })
+
             .catch(function(err){
                 // log the error to the console for now
                 console.log(err);
@@ -143,10 +188,26 @@ app.post('/applicationForm/sponsorship_required/:id', function (req,res) {
   console.log(req.body);
   console.log(_id);
 
+      var whatToDo = "";
+
+    var NEXT = "nextScreen";
+    var SAVE_FOR_LATER = "saveForLater";
+
+    if (req.body.nextBtn !== undefined ){
+      console.log("next button pressed");
+      whatToDo = NEXT;
+    }
+    else if (req.body.saveForLaterBtn !== undefined){
+      console.log("save for later button pressed")
+      whatToDo = SAVE_FOR_LATER;
+    }
+
     var applicationFields = {
         household_income: req.body.household_income,
         household_people: req.body.household_people,
-        travel_cost:req.body.travel_cost
+        travel_cost:req.body.travel_cost,
+        route:"http://localhost:8080"+req.path,
+        application_status: "In Progress"
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -154,8 +215,17 @@ app.post('/applicationForm/sponsorship_required/:id', function (req,res) {
         applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
-                  res.redirect('/applicationForm/about_you/' + _id ); 
+                  //res.redirect('/applicationForm/about_you/' + _id ); 
+                  if(whatToDo === NEXT){
+                res.redirect('/applicationForm/about_you/' + _id );
+              }
+              else{
+                // todo send email...
+                res.render("save_for_later", applicationFields)
+              }   
             })
+
+
             .catch(function(err){
                 // log the error to the console for now
                 console.log(err);
@@ -178,11 +248,27 @@ app.post('/applicationForm/sponsorship_not_required/:id', function (req,res) {
   console.log(req.body);
   console.log(_id);
 
+  var whatToDo = "";
+
+    var NEXT = "nextScreen";
+    var SAVE_FOR_LATER = "saveForLater";
+
+    if (req.body.nextBtn !== undefined ){
+      console.log("next button pressed");
+      whatToDo = NEXT;
+    }
+    else if (req.body.saveForLaterBtn !== undefined){
+      console.log("save for later button pressed")
+      whatToDo = SAVE_FOR_LATER;
+    }
+
     var applicationFields = {
         responsiblePerson_name: req.body.responsiblePerson_name,
         responsiblePerson_lastname: req.body.responsiblePerson_lastname,
         responsiblePerson_phoneNumber:req.body.responsiblePerson_phoneNumber,
-        responsiblePerson_email:req.body.responsiblePerson_email
+        responsiblePerson_email:req.body.responsiblePerson_email,
+        route:"http://localhost:8080"+req.path,
+        application_status: "In Progress"
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -190,8 +276,16 @@ app.post('/applicationForm/sponsorship_not_required/:id', function (req,res) {
         applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
-                  res.redirect('/applicationForm/about_you/' + _id ); 
+                  //res.redirect('/applicationForm/about_you/' + _id );
+                  if(whatToDo === NEXT){
+                res.redirect('/applicationForm/about_you/' + _id );
+              }
+              else{
+                // todo send email...
+                res.render("save_for_later", applicationFields)
+              }    
             })
+
             .catch(function(err){
                 // log the error to the console for now
                 console.log(err);
@@ -213,10 +307,27 @@ app.post('/applicationForm/about_you/:id', function (req,res) {
   console.log(req.body);
   console.log(_id);
 
+
+  var whatToDo = "";
+
+    var NEXT = "nextScreen";
+    var SAVE_FOR_LATER = "saveForLater";
+
+    if (req.body.nextBtn !== undefined ){
+      console.log("next button pressed");
+      whatToDo = NEXT;
+    }
+    else if (req.body.saveForLaterBtn !== undefined){
+      console.log("save for later button pressed")
+      whatToDo = SAVE_FOR_LATER;
+    }
+
     var applicationFields = {
       background : req.body.background,
       why_codex : req.body.why_codex,
-      problem_solved: req.body.problem_solved  
+      problem_solved: req.body.problem_solved,  
+      route:"http://localhost:8080"+req.path,
+      application_status: "In Progress"
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -224,7 +335,14 @@ app.post('/applicationForm/about_you/:id', function (req,res) {
         applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
+                //res.redirect('/applicationForm/puzzles/' + _id );
+                if(whatToDo === NEXT){
                 res.redirect('/applicationForm/puzzles/' + _id );
+              }
+              else{
+                // todo send email...
+                res.render("save_for_later", applicationFields)
+              }    
             })
             .catch(function(err){
                 // log the error to the console for now
@@ -249,7 +367,8 @@ app.post('/applicationForm/puzzles/:id', function (req,res) {
       puzzle1 : req.body.puzzle1,
       puzzle2 : req.body.puzzle2,
       heard_about_codex: req.body.heard_about_codex,
-      application_status:req.body.application_status
+      application_status:req.body.application_status,
+      route:"http://localhost:8080"+req.path,
     };
 
     MongoClient.connect(url, function(err, db) {
