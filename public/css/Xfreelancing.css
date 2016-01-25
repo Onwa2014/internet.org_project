@@ -13,13 +13,11 @@ section.page-heading {
     margin-bottom: 20px;
 }
 body {
-  background: -webkit-radial-gradient(center ellipse, #4c4c4c 0%, #131313 84%, #131313 100%);
-  background: radial-gradient(ellipse at center, #4c4c4c 0%, #131313 84%, #131313 100%);
-  max-width: 445px;
-  margin: 0 auto;
-  font-family: 'Muli', sans-serif;
-/*  font-family: "Open Sans", sans-serif;
-*/  letter-spacing: .9px;
+    background: radial-gradient(ellipse at center, #4AE40A 0%, #2B737C 84%, #4E9348 100%);
+    max-width: 445px;
+    margin: 0 auto;
+    font-family: 'Muli', sans-serif;
+    letter-spacing: .9px;
 }
 div .opt { 
   resize: horizontal;
@@ -387,10 +385,10 @@ form .question input[type="date"]:valid ~ label {
   transform: translate(5px, -35px) scale(0.6);
 }
 textarea {
-    /*color: inherit;*/
+   border-radius: 9px;
+    padding: 6px;
     line-height: auto;
-    /*font: inherit;*/
-    /*margin: 0;*/
+   
 }
 
 /*form .question textarea[type="text"] {
