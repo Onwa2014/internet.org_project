@@ -258,27 +258,20 @@ button.next {
   display: inline-block;
   border-radius: 0.5em;
 }
-form button:hover, form button:focus {
-    /* color: #30843c; */
-    background-color: #8bc53f;
-    /*color: #ff4a56;*/
+button.saveForLater {
+  background-color: rgba(139, 197, 63, 0.46);
+  float: right;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  border: 1px solid #8bc53f;
+  line-height: 0;
+  font-size: 17px;
+  display: inline-block;
+  border-radius: 0.5em;
 }
-form button {
-    margin-top: 35px;
-    margin-left: 15px;
-    background-color: rgba(139, 197, 63, 0.46);
-    border: 1px solid #8bc53f;
-    line-height: 0;
-    font-size: 17px;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 20px 15px;
-    border-radius: 0.5em;
-    color: #1A1B1B;
-    font-weight: 100;
-    letter-spacing: 0.01em;
-    position: relative;
-    /* float: right; */
+form button:hover, form button:focus {
+    background-color: #8bc53f;
 }
 form .question {
   position: relative;
