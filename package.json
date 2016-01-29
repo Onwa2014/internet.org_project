@@ -7,13 +7,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "~1.14.2",
+    "bower": "~1.7.2",
+    "compression": "^1.6.1",
     "express": "~4.13.3",
     "express-handlebars": "~2.0.1",
-    "mongodb": "~2.0.55",
-    "bower": "~1.7.2",
     "handlebars": "~4.0.5",
-    "nodemailer": "~2.0.0",
-    "body-parser": "~1.14.2"
+    "mongodb": "~2.0.55",
+    "nodemailer": "~2.0.0"
   },
   "devDependencies": {},
   "scripts": {
