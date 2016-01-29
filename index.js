@@ -18,9 +18,10 @@ app.use(bodyParser.json());
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.use(express.static('public'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(compression());
+app.use(express.static('public'));
+app.use(express.static(__dirname + '/bower_components');
+
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
