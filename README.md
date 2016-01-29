@@ -13,5 +13,5 @@ Open terminal to the internet.org application and type
  
  ```
  This will install all modules the application depend on.
- Start the application by typing: ``` nodemon index.js ```
+ Start the application by typing: ``` node index.js ```
  If there are no errors. Open ```http://localhost:8080``` in a web browser.
