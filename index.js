@@ -20,7 +20,7 @@ app.set('view engine', 'handlebars');
 
 app.use(compression());
 app.use(express.static('public'));
-app.use(express.static(__dirname + '/bower_components');
+app.use(express.static('bower_components'));
 
 
  // Connection URL 
