@@ -227,7 +227,6 @@ app.post('/applicationForm/sponsorship_required/:id', function (req,res) {
     });
 });
 
-
 app.get('/applicationForm/sponsorship_not_required/:id',function (req,res){
   var route = req.path;
   console.log("http:/" + route)
