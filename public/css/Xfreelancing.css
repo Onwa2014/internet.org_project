@@ -3,13 +3,8 @@
   font-weight: light;
   -webkit-font-smoothing: antialiased;
 }
-section.page-heading {
-    background: url(/img/apply.jpg) no-repeat;
-    background-size: cover;
-    opacity: .9;
-    padding: 15px;
-    border-radius: 0.5em;
-    margin-bottom: 20px;
+a {
+    color: #054E02;
 }
 body {
     background: radial-gradient(ellipse at center, #4AE40A 0%, #2B737C 84%, #4E9348 100%);
@@ -18,11 +13,18 @@ body {
     font-family: 'Muli', sans-serif;
     letter-spacing: .9px;
 }
+section.page-heading {
+    background: url(/img/apply.jpg) no-repeat;
+    background-size: cover;
+    opacity: .9;
+    padding: 15px;
+    border-radius: 0.5em;
+    margin-bottom: 20px;
+}
 div .opt { 
   resize: horizontal;
   width: 0px;
 }
-
 .question {
     resize: both;
     overflow: auto;
@@ -42,8 +44,7 @@ div .opt {
     background: transparent;
     height: 60px;
     display: -webkit-box;
-    display: flex; */
-    display: -webkit-flex; */
+    display: flex;
     display: -ms-flexbox;
     -webkit-box-align: center;
     -webkit-align-items: center;
@@ -59,7 +60,6 @@ div .opt {
   background: #2b737c;
   width: 100%;
   height: 100%;
-  /*  border-bottom: 5px solid lighten($background-a, 10%);*/
   text-align: center;
   display: -webkit-box;
   display: -webkit-flex;
@@ -145,7 +145,6 @@ div .opt {
 .content p {
     color: #498219;
     font-weight: 300;
-    font-family: "Open Sans", sans-serif;
     line-height: 23px;
     margin: 0;
     margin-left: 35px;
@@ -159,7 +158,6 @@ div .opt {
 }
 
 .mdl-selectfield {
-    font-family: 'Roboto','Helvetica','Arial',sans-serif;
     margin-left: -46px;
     padding-top: 18px;
 }
@@ -615,20 +613,6 @@ input {
   -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
   transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
 }
-/*select section style below*/
-select {
-    font-family: inherit;
-    background-color: transparent;
-    width: inherit;
-    padding: 4px 19px;
-    font-size: 13px;
-    color: yellowgreen;
-    border: radius;
-    border-bottom: 1px solid rgba(0,0,0, 0.12);
-    rgba(0,0,0, 0.12);
-    margin-top: 36px;
-    margin-bottom: 68px;
-}
 
 /* Remove focus */
 select:focus {
@@ -645,10 +629,7 @@ select:focus {
      -moz-appearance: none;
           appearance: none;
 }
-.mdl-selectfield {
-    font-family: 'Roboto','Helvetica','Arial',sans-serif;
-    /*position: fixed;*/
-}
+
 .mdl-selectfield:after {
     position: relative;
     top: 0.75em;
