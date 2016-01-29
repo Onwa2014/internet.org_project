@@ -662,7 +662,9 @@ select:focus {
 .row {
     margin: 30px;
 }
-img {
+
+
+.puzzle img {
     height: 59px;
     width: 150px;
     background: rgba(0, 0, 0, 0.38);
