@@ -4,7 +4,7 @@
 	      	<div class="sm">P 5 of 5</div>
 	      	<form action="/applicationForm/puzzles/{{_id}}" method="POST">
 			 	<input type="hidden" name="_id" value="{{_id}}">
-			 	<small style="font-weight: bolder; font-size: 80%; display: -webkit-box;"> Puzzle 1: Seating arrangements can be confusing-much like feature requests!</small>
+			 	<small class="smallz"> Puzzle 1: Seating arrangements can be confusing-much like feature requests!</small>
 			 	<br>
 			 	<h3>Bithday Party - Seating Puzzle</h3>
 			 	<small> It's Alan's birthday and he's having a party. Seven other people will attend. Everyone will sit around the dining table. The seating arrangement must meet the following conditions:</small>
@@ -21,12 +21,12 @@
 				<br>
 				<br>
 				<h5>Who should sit where?</h5>
-				<img src="/img/puzzle1.png" style="width:300px; height:300px;" >
+				<img class="puzzle" src="/img/puzzle1.png">
 				<div class="personalHd"><strong>Write the names, starting with Alan, going clockwise.</strong></div>
 				<div class="question">
-				  	<textarea id="input_18" class="form-textarea" name="puzzle1" cols="25" rows="3"></textarea>
+				  	<textarea id="input_18" class="form-textarea" name="puzzle1" rows="3"></textarea>
 				</div>
-	<small style="font-weight: bolder; font-size: 80%; display: -webkit-box;">Puzzle 2: Sometimes we need to combine our problem solving abilities with a bit of imagination.</small>
+	<small class="smallz">Puzzle 2: Sometimes we need to combine our problem solving abilities with a bit of imagination.</small>
 	<br>
 				<h3>How many R50 notes on Cape Town Station?</h3><br>
 				<small>How many R50 notes do you think there are on Cape Town Station at 8:00 a.m. on any given morning?</small>
@@ -34,23 +34,23 @@
 				<br>
 				<div class="personalHd"><h4><strong>Tell us what your answer is and also tell us how you got to that number:</strong></h4></div>
 				<div class="question">
-				  	<textarea id="input_18" class="form-textarea" name="puzzle2" cols="25" rows="3"></textarea>
+				  	<textarea id="input_18" class="form-textarea" name="puzzle2" rows="3"></textarea>
 				</div>
 				<h6>How did you find out about codeX?</h6>
 				<div class="">
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="facebook"><small>Facebook</small> <br />
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="twitter"><small>Twitter</small> <br />
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="mxit"><small>Mxit</small> <br />
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="computer_training_centre"><small>Computer training cente e.g Silulo Ulutho</small><br />
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="school_or_academic_instition"><small>School or Academic Institution</small><br />
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="blogs_or_technews"><small>Blogs or Tech News e.g Silicon Cape</small><br />
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="radio"><small>Heard about it on the radio</small><br>
-       				<input type="radio" name="heard_about_codex" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;">
-       				<input type="text" style="border: 1px solid #6C9816;font-size: 11px;display: -webkit-inline-box;box-sizing: border-box;padding: 7px 28px;border-radius: 15px;color: #30843C;font-weight: 100;text-align: start;letter-spacing: 0.01em;position: relative;z-index: 1;" placeholder="Other">
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="facebook"><small>Facebook</small> <br />
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="twitter"><small>Twitter</small> <br />
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="mxit"><small>Mxit</small> <br />
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="computer_training_centre"><small>Computer training cente e.g Silulo Ulutho</small><br />
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="school_or_academic_instition"><small>School or Academic Institution</small><br />
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="blogs_or_technews"><small>Blogs or Tech News e.g Silicon Cape</small><br />
+       				<input type="radio" name="heard_about_codex" class="aboutRads" value="radio"><small>Heard about it on the radio</small><br>
+       				<input type="radio" name="heard_about_codex" class="aboutRads">
+       				<input type="text" class="inputOpt" placeholder="Other">
        				<h6>That's it - mark your form as "Completed" and hit "Submit my Application"</h6>
        				<div class="">
-       				<input type="radio"  name="application_status" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="inprogress"><small>In Progress</small>  <br />
-       				<input type="radio" name="application_status" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start; margin:3px;" value="complete"><small>Complete</small> <br />
+       				<input type="radio"  name="application_status" class="aboutRads" value="inprogress"><small>In Progress</small>  <br />
+       				<input type="radio" name="application_status" class="aboutRads" value="complete"><small>Complete</small> <br />
        				</div>
     			</div>
     			<br />
