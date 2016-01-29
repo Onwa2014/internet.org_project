@@ -3,7 +3,6 @@
   font-weight: light;
   -webkit-font-smoothing: antialiased;
 }
-
 section.page-heading {
     background: url(/img/apply.jpg) no-repeat;
     background-size: cover;
@@ -234,6 +233,7 @@ form button.save {
     margin:auto;
     bottom: 5px;
     left: 30%;
+    float: right;
 }
 form button.back {
   background-color: #009c75;
@@ -258,17 +258,16 @@ button.next {
   display: inline-block;
   border-radius: 0.5em;
 }
-button.saveForLater {
-  background-color: rgba(139, 197, 63, 0.46);
-  float: right;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 20px 15px;
-  border: 1px solid #8bc53f;
-  line-height: 0;
-  font-size: 17px;
-  display: inline-block;
-  border-radius: 0.5em;
+ button.saveForLater {
+    background-color: rgb(44, 117, 123);
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    border: 1px solid #77CA4C;
+    line-height: 0;
+    font-size: 17px;
+    display: inline-block;
+    border-radius: 0.5em;
 }
 form button:hover, form button:focus {
     background-color: #8bc53f;
@@ -283,6 +282,7 @@ form .question:first-of-type {
 form .question {
     position: relative;
     padding: 40px 6px;}
+    
 form .question label {
   transform-origin: center;
   color: #18940C;
@@ -378,26 +378,83 @@ form .question input[type="date"]:valid ~ label {
   transform: translate(5px, -35px) scale(0.6);
 }
 textarea {
-   border-radius: 9px;
-    padding: 6px;
-    line-height: auto;
-   
+  border-radius: 9px;
+  padding: 6px;
+  line-height: auto;
+  width:100%;
 }
 
-/*form .question textarea[type="text"] {
-    appearance: none;
-    background-color: none;
-    border: 1px solid #6C9816;
-    font-size: 13px;
-    display: block;
-    box-sizing: border-box;
-    padding: 31px 38px;
-    border-radius: 0.5em;
-    color: #30843C;
-    font-weight: 100;
-    letter-spacing: 0.01em;
-    position: static;
-}*/
+.wallPaper{
+  height: 60px;
+  width: 91px;
+}
+.smallz{
+  font-weight: bolder; 
+  font-size: 80%; 
+  display: -webkit-box;
+}
+
+.xHeading{
+  color:white;
+  background: #0E0E0E;
+  opacity: .9;
+  display: inline-block;
+  padding-top: 20px;
+
+}
+.ques1 {
+  width:auto;
+  margin:3px;
+}
+
+.ques2Rads{
+  width:initial;
+  display:-webkit-inline-box;
+  position:relative;
+  text-align:start;
+  margin:3px;
+}
+.optionalRads{
+  width: initial;
+  display: -webkit-inline-box;
+  position: relative;
+  text-align: start;
+  margin-right: 12px;
+  margin-left: 4px;
+}
+
+.inputOpt{
+  border: 1px solid #6C9816;
+  font-size: 11px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 7px 28px;
+  border-radius: 15px;
+  color: #30843C;
+  font-weight: 100;
+  text-align: start;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+#inputSpaceFix {
+  position: relative;
+  padding: 24px 0px;
+  padding-bottom: 0;
+}
+
+.aboutRads {
+  width: initial;
+  display:inline-block;
+  position: relative;
+  text-align: start;
+  margin:3px;
+}
+.puzzle{
+  width:300px; 
+  height:300px;
+}
 
 form .question textarea[type="text"] {
     appearance: none;
@@ -525,15 +582,6 @@ form .question input[type="tel"]:valid ~ label {
   -webkit-transform: translate(5px, -35px) scale(0.6);
   transform: translate(5px, -35px) scale(0.6);
 }
-/*form .question input[type="tel"]:invalid ~ label {
-  text-transform: uppercase;
-  font-style: italic;
-  -moz-transform: translate(5px, -35px) scale(0.6);
-  -ms-transform: translate(5px, -35px) scale(0.6);
-  -webkit-transform: translate(5px, -35px) scale(0.6);
-  transform: translate(5px, -35px) scale(0.6);
-}*/
-
 input {
     resize: horizontal;
     width: 140px;
@@ -546,7 +594,6 @@ input {
     input:focus {
         min-width: 140px;
     }
-
 .transition, form button, form .question label, form .question input[type="text"] {
   -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
   -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
@@ -648,6 +695,12 @@ small.underlined {
 }
 small.shrinked {
     font-size: x-small;
+}
+.form-sub-label-container{
+  vertical-align: top;
+}
+#instruction{
+text-align:center;
 }
 div .text-content {
      font-size: smaller;
