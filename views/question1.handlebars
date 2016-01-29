@@ -15,14 +15,14 @@ If you've done programming at school, university, or in your own time, tell us a
     <form action="/applicationForm" method="POST">
             <label class="text-content" id="label_18" for="input_18"><strong>Have you tried coding before?</strong></label>
           <div class="">
-                  <input type="radio" style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="coding_experience" value="No,not yet" required>No, not yet <br>
-                  <input type="radio" style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="coding_experience" value="Yes, a little" required>Yes, a little <br>
-                  <input type="radio" style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="coding_experience" value="Yes,quite a bit" required>Yes, quite a bit <br>
+                  <input type="radio" class="ques1" name="coding_experience" value="No,not yet" required>No, not yet <br>
+                  <input type="radio" class="ques1" name="coding_experience" value="Yes, a little" required>Yes, a little <br>
+                  <input type="radio" class="ques1" name="coding_experience" value="Yes,quite a bit" required>Yes, quite a bit <br>
           </div>
           <br>
               <label class="text-content" id="label_18" for="input_18"><strong>If you already have lots of coding experience, tell us about it here:</strong>
               </label>
-              <textarea type="text" cols="25" name="coding_experience_details" rows="3,5" id="myTextArea" id="input_18" class="form-textarea" ></textarea>
+              <textarea type="text" name="coding_experience_details" rows="3,5" id="myTextArea" id="input_18" class="form-textarea" ></textarea>
        </div>
         <div id="cid_15" class="form-input-wide">
               <div id="text_15" class="form-html">
@@ -43,23 +43,23 @@ If you've done programming at school, university, or in your own time, tell us a
           </span>
         </label>
           <div id="cid_50" class="form-input-wide jf-required">
-            <span class="form-sub-label-container" style="vertical-align: top">
-              <input type="text" style="border: 1px solid #6C9816;font-size: 13px;display: -webkit-inline-box;box-sizing: border-box;padding: 8px 9px;border-radius: 15px;color: #30843C;font-weight: 100;text-align: start;letter-spacing: 0.01em;position: relative;z-index: 1;" class="form-textbox validate[required, Email]" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="" required>
+            <span class="form-sub-label-container">
+              <input type="text" class="inputOpt" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="" required>
               <label class="text-content" for="input_50" ><br><small>Tell us your email address that you used to register on codecademy.com courses. We will send you an invite so that we can see how you are progressing through Codecademy.</small></label>
             </span>
           </div>
           <div class="form-pagebreak">
           <div id="text_85" class="form-html">
-            <p class="text-content" style="text-align:center;"><small>
+            <p class="text-content" id="instruction" ><small>
               Please&nbsp;note this form has &nbsp;5 sections&nbsp;to complete.
             At the end of the form you must mark your application as "Complete" in order to submit the application.</small></p>
           </div>
           </div>
 
-          <div class="form-pagebreak">
-            <br>
-            <button class="next">next</button>
-          </div>
+  <div class="form-pagebreak">
+    <br>
+<button class="next" name="nextBtn">next</button>
+  </div>
        </form>
      </div>
     </div>
