@@ -19,8 +19,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
-app.use(compression());
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use(compression());
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
@@ -33,6 +33,8 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
     "puzzles" : ""
 
  }
+ //var path = req.path;
+
 app.get("/", function (req,res) {
     res.render("home")
 });
@@ -104,6 +106,7 @@ app.post('/applicationForm/question2/:id', function (req,res) {
                 // todo send email...
                 res.render("save_for_later", applicationFields)
               }
+
             })
             .catch(function(err){
                 // log the error to the console for now
