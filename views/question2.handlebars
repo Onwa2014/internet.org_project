@@ -1,4 +1,3 @@
-<body>
 	<div class="content">
 		<div class="row">
 			<h2><strong>Personal details</strong></h2> 
@@ -46,7 +45,7 @@
 				  	</div>
 <div class="personalHd"><strong>EDUCATION AND EXPERIANCE</strong></div>
 				  		<div class="question">
-				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" cols="25" rows="3"></textarea>
+				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" rows="3"></textarea>
 				  		<xsmall>Tell us what level of education you have,where you studied and whether you have experience any field.</xsmall>
 				  		</div>
 
@@ -75,22 +74,24 @@
 				    		<label>Phone no:</label>
 				  		</div>
 <div class="personalHd" ><strong> MY REFERENCE WAS MY</strong></div>
-				  		<div class="question" style="position: relative;padding: 24px 0px;padding-bottom: 0;">
-       						<input type="radio"style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="relationship" value="mentor">Mentor<br />
-       						<input type="radio"style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="relationship" value="teacher">Teacher<br />
-       						<input type="radio"style="width:initial;display:-webkit-inline-box;position:relative;text-align:start; margin:3px;" name="relationship" value="employer">Employer
+				  		<div class="question" id="inputSpaceFix">
+       						<input type="radio" class="ques2Rads" name="relationship" value="mentor">Mentor<br />
+       						<input type="radio" class="ques2Rads" name="relationship" value="teacher">Teacher<br />
+       						<input type="radio" class="ques2Rads" name="relationship" value="employer">Employer
     					</div>
-					<input type="radio" style="width: initial;display: -webkit-inline-box;position: relative;text-align: start;margin-right: 12px;margin-left: 4px;" name="relationship" value="other">
-       				<input type="text" style="border: 1px solid #6C9816;font-size: 11px;display: -webkit-inline-box;box-sizing: border-box;padding: 7px 28px;border-radius: 15px;color: #30843C;font-weight: 100;text-align: start;letter-spacing: 0.01em;position: relative;z-index: 1;" maxlength="40" placeholder="Other">
-       						<br>
-       						<br>
-    					<div class="form-pagebreak">
-          					<div class="form-pagebreak-next-container">
-            					<button class="btn btn-4 btn-4a icon-arrow-right" name="nextBtn">next</button>
-            					<button class="saveForLater" name="saveForLaterBtn">Save for later</button>
-          					</div>
- 						</div>
+					<input type="radio" class="optionalRads" name="relationship" value="other">
+       				<input type="text" class="inputOpt" maxlength="40" placeholder="Other">
+       			<br>
+       		<br>				
+	    <ol>
+ 	<div class="form-pagebreak">
+<li><button class="saveForLater" name="saveForLaterBtn">Save for later</button></li>  
+	</div> 
+			<br>
+	<div class="form-pagebreak">
+<li><button class="next" name="nextBtn">next</button></li>
+	</div>
+		</ol>			
 			</form>
 		</div>
 	</div>
-</body>
