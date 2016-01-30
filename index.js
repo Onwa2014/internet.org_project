@@ -52,13 +52,13 @@ app.post('/applicationForm',newApplicant.application);
 
 app.get("/applicationForm/question2/:id", function (req,res) {
     var route = req.path;
-    console.log("http://localhost:8080" + route)
+    console.log("http://localhost:2003" + route)
     res.render("question2", {_id : req.params.id });
  });
 app.post('/applicationForm/question2/:id', function (req,res) {
 	var _id = req.params.id;
   var route = req.path;
-    console.log("http://localhost:8080" + route)
+    console.log("http://localhost:2003" + route)
     console.log("zonke");
     console.log(req.body);
     console.log(_id);
@@ -90,7 +90,7 @@ app.post('/applicationForm/question2/:id', function (req,res) {
         ref_email_add: req.body.ref_email_add,
         ref_phone_number: req.body.ref_phone_number,
         relationship: req.body.relationship,
-        route:"http://localhost:8080"+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -136,7 +136,7 @@ app.post('/applicationForm/financial_info/:id', function (req,res) {
 
     var applicationFields = {
         financial_support : req.body.financial_supp,
-        route:"http://localhost:8080"+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -199,7 +199,7 @@ app.post('/applicationForm/sponsorship_required/:id', function (req,res) {
         household_income: req.body.household_income,
         household_people: req.body.household_people,
         travel_cost:req.body.travel_cost,
-        route:"http://localhost:8080"+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -259,7 +259,7 @@ app.post('/applicationForm/sponsorship_not_required/:id', function (req,res) {
         responsiblePerson_lastname: req.body.responsiblePerson_lastname,
         responsiblePerson_phoneNumber:req.body.responsiblePerson_phoneNumber,
         responsiblePerson_email:req.body.responsiblePerson_email,
-        route:"http://localhost:8080"+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -318,7 +318,7 @@ app.post('/applicationForm/about_you/:id', function (req,res) {
       background : req.body.background,
       why_codex : req.body.why_codex,
       problem_solved: req.body.problem_solved,  
-      route:"http://localhost:8080"+req.path,
+      route:"http://localhost:2003"+req.path,
       application_status: "In Progress"
     };
 
@@ -360,7 +360,7 @@ app.post('/applicationForm/puzzles/:id', function (req,res) {
       puzzle2 : req.body.puzzle2,
       heard_about_codex: req.body.heard_about_codex,
       application_status:req.body.application_status,
-      route:"http://localhost:8080"+req.path,
+      route:"http://localhost:2003"+req.path,
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -378,7 +378,7 @@ app.post('/applicationForm/puzzles/:id', function (req,res) {
     });
 });
 //start everything up
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 2003;
 
 app.listen( port, function(){
   console.log('listening on *:' + port);
