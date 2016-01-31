@@ -63,7 +63,7 @@ form .question input[type="date"]:valid ~ label{text-transform:uppercase;font-st
 textarea{border-radius:9px;padding:6px;line-height:auto;width:100%;}
 .wallPaper{height:60px;width:91px;}
 .smallz{font-weight:bolder;font-size:80%;display:-webkit-box;}
-.xHeading{color:white;background:#0E0E0E;opacity:.9;display:inline-block;padding-top:20px;}
+.xHeading{color:white;background:#0E0E0E;opacity:.9;display:inline-block;}
 .ques1{width:auto;margin:3px;}
 .ques2Rads{width:initial;display:-webkit-inline-box;position:relative;text-align:start;margin:3px;}
 .optionalRads{width:initial;display:-webkit-inline-box;position:relative;text-align:start;margin-right:12px;margin-left:4px;}
