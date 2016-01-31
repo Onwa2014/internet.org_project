@@ -20,8 +20,6 @@ app.set('view engine', 'handlebars');
 
 app.use(compression());
 app.use(express.static('public'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
@@ -117,7 +115,7 @@ app.post('/applicationForm/question2/:id', function (req,res) {
     });
 });
 app.get("/codecademy", function (req,res) {
-  res.render("codecademy")
+  res.render("learn")
 });
 app.get("/applicationForm/financial_info/:id", function (req,res) {
      var route = req.path;
