@@ -55,72 +55,8 @@ app.get("/applicationForm/question2/:id", function (req,res) {
     console.log("http://localhost:8080" + route)
     res.render("question2", {_id : req.params.id });
  });
-app.post('/applicationForm/question2/:id', function (req,res) {
-	var _id = req.params.id;
-  var route = req.path;
-    console.log("http://localhost:8080" + route)
-    console.log("zonke");
-    console.log(req.body);
-    console.log(_id);
-
-    // check which button was pressed
-    
-    //console.log(req.body.nextBtn);
-    //console.log(req.body.saveForLaterBtn);
-
-    var whatToDo = "";
-
-    var NEXT = "nextScreen";
-    var SAVE_FOR_LATER = "saveForLater";
-
-    if (req.body.nextBtn !== undefined ){
-      console.log("next button pressed");
-      whatToDo = NEXT;
-    }
-    else if (req.body.saveForLaterBtn !== undefined){
-      console.log("save for later button pressed")
-      whatToDo = SAVE_FOR_LATER;
-    }
-
-    var applicationFields = {
-        first_name : req.body.first_name,
-        last_name : req.body.last_name,
-        id_number: req.body.id_number,
-        email_address: req.body.email_address,
-        phone_number: req.body.phone_number,
-        dateofbirth: req.body.date_of_birth,
-        city: req.body.city,
-        education_and_experience: req.body.education_and_experience,
-        ref_name_and_surname: req.body.ref_name_and_surname,
-        ref_email_add: req.body.ref_email_add,
-        ref_phone_number: req.body.ref_phone_number,
-        relationship: req.body.relationship,
-        route:"http://localhost:8080"+req.path,
-        application_status: "In Progress"
-    };
-
-    MongoClient.connect(url, function(err, db) {
-        var applications = db.collection('applications');
-        applications
-            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
-            .then(function(result){
-
-              if(whatToDo === NEXT){
-                res.redirect('/applicationForm/financial_info/' + _id );
-              }
-              else{
-                // todo send email...
-                res.render("save_for_later", applicationFields)
-              }
-
-            })
-            .catch(function(err){
-                // log the error to the console for now
-                console.log(err);
-                res.send(err.stack);
-            });
-    });
-});
+app.post('/applicationForm/question2/:id',newApplicant.question2);
+	
 app.get("/codecademy", function (req,res) {
   res.render("codecademy")
 });
@@ -129,49 +65,7 @@ app.get("/applicationForm/financial_info/:id", function (req,res) {
     console.log("http:/" + route)
      res.render("financial_info", {_id : req.params.id });
 });
-app.post('/applicationForm/financial_info/:id', function (req,res) {
-  var _id = req.params.id;
-
-  console.log("yolanda");
-  console.log(req.body);
-  console.log(_id);
-    
-
-
-
-    var applicationFields = {
-        financial_support : req.body.financial_supp,
-        route:"http://localhost:8080"+req.path,
-        application_status: "In Progress"
-    };
-
-    MongoClient.connect(url, function(err, db) {
-        var applications = db.collection('applications');
-        applications
-            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
-            .then(function(result){
-               if (applicationFields.financial_support === "yes") {
-                  res.redirect('/applicationForm/sponsorship_required/' + _id );
-               }
-               else {
-                  res.redirect('/applicationForm/sponsorship_not_required/' +  _id);
-               }
-                if(whatToDo === NEXT){
-                res.redirect('/applicationForm/financial_info/' + _id );
-              }
-              else{
-                // todo send email...
-                res.render("save_for_later", applicationFields)
-              }   
-            })
-
-            .catch(function(err){
-                // log the error to the console for now
-                console.log(err);
-                res.send(err.stack);
-            });
-    });
-});
+app.post('/applicationForm/financial_info/:id',financial_info.fin_info);
 
 app.get('/applicationForm/sponsorship_required/:id',function (req,res){
   var route = req.path;
@@ -179,210 +73,30 @@ app.get('/applicationForm/sponsorship_required/:id',function (req,res){
   res.render("sponsorship_required", {_id : req.params.id });
 });
 
-app.post('/applicationForm/sponsorship_required/:id', function (req,res) {
-  var _id = req.params.id;
-
-  console.log("vivi");
-  console.log(req.body);
-  console.log(_id);
-
-      var whatToDo = "";
-
-    var NEXT = "nextScreen";
-    var SAVE_FOR_LATER = "saveForLater";
-
-    if (req.body.nextBtn !== undefined ){
-      console.log("next button pressed");
-      whatToDo = NEXT;
-    }
-    else if (req.body.saveForLaterBtn !== undefined){
-      console.log("save for later button pressed")
-      whatToDo = SAVE_FOR_LATER;
-    }
-
-    var applicationFields = {
-        household_income: req.body.household_income,
-        household_people: req.body.household_people,
-        travel_cost:req.body.travel_cost,
-        route:"http://localhost:8080"+req.path,
-        application_status: "In Progress"
-    };
-
-    MongoClient.connect(url, function(err, db) {
-        var applications = db.collection('applications');
-        applications
-            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
-            .then(function(result){
-                  //res.redirect('/applicationForm/about_you/' + _id ); 
-                  if(whatToDo === NEXT){
-                res.redirect('/applicationForm/about_you/' + _id );
-              }
-              else{
-                // todo send email...
-                res.render("save_for_later", applicationFields)
-              }   
-            })
-
-
-            .catch(function(err){
-                // log the error to the console for now
-                console.log(err);
-                res.send(err.stack);
-            });
-    });
-});
-
-
+app.post('/applicationForm/sponsorship_required/:id', sponsorship.sponsorship_required);
+  
 app.get('/applicationForm/sponsorship_not_required/:id',function (req,res){
   var route = req.path;
   console.log("http:/" + route)
   res.render("sponsorship_not_required", {_id : req.params.id });
 });
 
-app.post('/applicationForm/sponsorship_not_required/:id', function (req,res) {
-  var _id = req.params.id;
-
-  console.log("iviwe");
-  console.log(req.body);
-  console.log(_id);
-
-  var whatToDo = "";
-
-    var NEXT = "nextScreen";
-    var SAVE_FOR_LATER = "saveForLater";
-
-    if (req.body.nextBtn !== undefined ){
-      console.log("next button pressed");
-      whatToDo = NEXT;
-    }
-    else if (req.body.saveForLaterBtn !== undefined){
-      console.log("save for later button pressed")
-      whatToDo = SAVE_FOR_LATER;
-    }
-
-    var applicationFields = {
-        responsiblePerson_name: req.body.responsiblePerson_name,
-        responsiblePerson_lastname: req.body.responsiblePerson_lastname,
-        responsiblePerson_phoneNumber:req.body.responsiblePerson_phoneNumber,
-        responsiblePerson_email:req.body.responsiblePerson_email,
-        route:"http://localhost:8080"+req.path,
-        application_status: "In Progress"
-    };
-
-    MongoClient.connect(url, function(err, db) {
-        var applications = db.collection('applications');
-        applications
-            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
-            .then(function(result){
-                  //res.redirect('/applicationForm/about_you/' + _id );
-                  if(whatToDo === NEXT){
-                res.redirect('/applicationForm/about_you/' + _id );
-              }
-              else{
-                // todo send email...
-                res.render("save_for_later", applicationFields)
-              }    
-            })
-
-            .catch(function(err){
-                // log the error to the console for now
-                console.log(err);
-                res.send(err.stack);
-            });
-    });
-});
-
-
+app.post('/applicationForm/sponsorship_not_required/:id', sponsorship.sponsorship_not_required); 
+  
 app.get("/applicationForm/about_you/:id", function (req,res) {
       var route = req.path;
       console.log("http:/" + route)
      res.render("about_you",{_id: req.params.id});
 });
-app.post('/applicationForm/about_you/:id', function (req,res) {
-  var _id = req.params.id;
-
-  console.log("Aphelele");
-  console.log(req.body);
-  console.log(_id);
-
-
-  var whatToDo = "";
-
-    var NEXT = "nextScreen";
-    var SAVE_FOR_LATER = "saveForLater";
-
-    if (req.body.nextBtn !== undefined ){
-      console.log("next button pressed");
-      whatToDo = NEXT;
-    }
-    else if (req.body.saveForLaterBtn !== undefined){
-      console.log("save for later button pressed")
-      whatToDo = SAVE_FOR_LATER;
-    }
-
-    var applicationFields = {
-      background : req.body.background,
-      why_codex : req.body.why_codex,
-      problem_solved: req.body.problem_solved,  
-      route:"http://localhost:8080"+req.path,
-      application_status: "In Progress"
-    };
-
-    MongoClient.connect(url, function(err, db) {
-        var applications = db.collection('applications');
-        applications
-            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
-            .then(function(result){
-                //res.redirect('/applicationForm/puzzles/' + _id );
-                if(whatToDo === NEXT){
-                res.redirect('/applicationForm/puzzles/' + _id );
-              }
-              else{
-                // todo send email...
-                res.render("save_for_later", applicationFields)
-              }    
-            })
-            .catch(function(err){
-                // log the error to the console for now
-                console.log(err);
-                res.send(err.stack);
-            });
-    });
-});
+app.post('/applicationForm/about_you/:id',about_you.aboutYou); 
+  
 app.get("/applicationForm/puzzles/:id", function (req,res) {
     var route = req.path;
       console.log("http:/" + route)
      res.render("puzzles",{_id:req.params.id});
 });
-app.post('/applicationForm/puzzles/:id', function (req,res) {
-  var _id = req.params.id;
-
-  console.log("milonie");
-  console.log(req.body);
-  console.log(_id);
-
-    var applicationFields = {
-      puzzle1 : req.body.puzzle1,
-      puzzle2 : req.body.puzzle2,
-      heard_about_codex: req.body.heard_about_codex,
-      application_status:req.body.application_status,
-      route:"http://localhost:8080"+req.path,
-    };
-
-    MongoClient.connect(url, function(err, db) {
-        var applications = db.collection('applications');
-        applications
-            .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
-            .then(function(result){
-                res.redirect('/');
-            })
-            .catch(function(err){
-                // log the error to the console for now
-                console.log(err);
-                res.send(err.stack);
-            });
-    });
-});
+app.post('/applicationForm/puzzles/:id',puzzles.puzzles); 
+ 
 //start everything up
 var port = process.env.PORT || 8080;
 
