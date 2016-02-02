@@ -59,8 +59,8 @@ app.get("/applicationForm/question2/:id", function (req,res) {
  });
 app.post('/applicationForm/question2/:id',newApplicant.question2);
 	
-app.get("/codecademy", function (req,res) {
-  res.render("codecademy")
+app.get("/learn", function (req,res) {
+  res.render("learn")
 });
 app.get("/applicationForm/financial_info/:id", function (req,res) {
      var route = req.path;
@@ -78,11 +78,17 @@ app.get('/applicationForm/sponsorship_required/:id',function (req,res){
 app.get('/aboutUs',function (req,res){
   res.render("about_codex");
 });
-app.get('/whatAbout',function (req,res){
+
+app.get('/about/info',function (req,res){
   res.render("whatInfo");
 });
-app.get('/whereAbouts',function (req,res){
-  res.render("whereInfo");
+
+app.get('/whereAbouts/info',function (req,res){
+  res.render("whereAbouts");
+});
+
+app.get('/when/info',function (req,res){
+  res.render("whenInfo");
 });
 
 app.post('/applicationForm/sponsorship_required/:id', sponsorship.sponsorship_required);

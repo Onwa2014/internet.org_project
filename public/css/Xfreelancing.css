@@ -42,7 +42,7 @@ form{position:relative;box-sizing:border-box;padding:30px 25px;background-color:
 form h1{color:#ff4a56;font-weight:100;letter-spacing:0.01em;margin-left:15px;margin-bottom:35px;text-transform:uppercase;}
 form button{margin-top:35px;margin-left:15px;background-color:rgba(139, 197, 63, 0.46);border:1px solid #8bc53f;line-height:0;font-size:17px;display:inline-block;box-sizing:border-box;padding:20px 15px;border-radius:0.5em;color:#1A1B1B;font-weight:100;letter-spacing:0.01em;position:relative;}
 form button.save{text-align:center;position:relative;background-color:rgba(93, 255, 74, 0.38);color:forestgreen;margin:auto;bottom:5px;left:30%;float:right;}
-form button.back{background-color:#009c75;display:inline-block;box-sizing:border-box;padding:20px 15px;border:1px solid #8bc53f;line-height:0;font-size:17px;display:inline-block;border-radius:0.5em;}
+.back{background-color:#009c75;display:inline-block;box-sizing:border-box;padding:20px 15px;border:1px solid #8bc53f;line-height:0;font-size:17px;display:inline-block;border-radius:0.5em;}
 button.next{background-color:rgba(139, 197, 63, 0.46);float:right;display:inline-block;box-sizing:border-box;padding:20px 15px;border:1px solid #8bc53f;line-height:0;font-size:17px;display:inline-block;border-radius:0.5em;}
 button.saveForLater{background-color:rgb(44, 117, 123);display:inline-block;box-sizing:border-box;padding:20px 15px;border:1px solid #77CA4C;line-height:0;font-size:17px;display:inline-block;border-radius:0.5em;}
 form button:hover, form button:focus{background-color:#8bc53f;}
@@ -126,13 +126,7 @@ footer small.shrinked{color:#6d6d6d;font-size:small;font-family:sans-serif;line-
 #ico_holder img{
 	display: inline;
 }
-.info{
-	display: inline-block;
-    color: rgba(72, 56, 56, 0.91);
-    border-radius: 50%;
-    background: rgb(220, 220, 220);
-    overflow: hidden;
-    transition: color .3s;
+.info{ display: inline-block;color: rgba(72, 56, 56, 0.91);border-radius: 50%;background: rgb(220, 220, 220);overflow: hidden;transition: color .3s;
 }
 
 .info img{
