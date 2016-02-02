@@ -2,9 +2,13 @@ var express = require('express'),
 	exphbs = require('express-handlebars'),
 	bodyParser = require('body-parser');
   	// formPge1 = require('./routes/formPge1');
-  	MongoClient = require('mongodb').MongoClient
-  	mongodb = require('mongodb')
-  	newApplicant = require('./routes/newApplicant')
+  	MongoClient = require('mongodb').MongoClient,
+  	mongodb = require('mongodb'),
+    newApplicant = require('./routes/newApplicant'),
+  	financial_info = require('./routes/financial_info'),
+    sponsorship = require('./routes/sponsorship');
+    about_you = require('./routes/about_you');
+    puzzles = require('./routes/puzzles');
 
 var ObjectId = mongodb.ObjectId;
 
@@ -20,8 +24,6 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-
-
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
@@ -52,7 +54,7 @@ app.post('/applicationForm',newApplicant.application);
 
 app.get("/applicationForm/question2/:id", function (req,res) {
     var route = req.path;
-    console.log("http://localhost:8080" + route)
+    console.log("http://localhost:2003" + route)
     res.render("question2", {_id : req.params.id });
  });
 app.post('/applicationForm/question2/:id',newApplicant.question2);
@@ -71,6 +73,16 @@ app.get('/applicationForm/sponsorship_required/:id',function (req,res){
   var route = req.path;
   console.log("http:/" + route)
   res.render("sponsorship_required", {_id : req.params.id });
+});
+
+app.get('/aboutUs',function (req,res){
+  res.render("about_codex");
+});
+app.get('/whatAbout',function (req,res){
+  res.render("whatInfo");
+});
+app.get('/whereAbouts',function (req,res){
+  res.render("whereInfo");
 });
 
 app.post('/applicationForm/sponsorship_required/:id', sponsorship.sponsorship_required);
@@ -98,7 +110,7 @@ app.get("/applicationForm/puzzles/:id", function (req,res) {
 app.post('/applicationForm/puzzles/:id',puzzles.puzzles); 
  
 //start everything up
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 2003;
 
 app.listen( port, function(){
   console.log('listening on *:' + port);

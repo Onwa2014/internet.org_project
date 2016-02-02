@@ -16,7 +16,7 @@ exports.puzzles = function(req,res,next){
       puzzle2 : req.body.puzzle2,
       heard_about_codex: req.body.heard_about_codex,
       application_status:req.body.application_status,
-      route:"http://localhost:8080"+req.path,
+      route:"http://localhost:2003"+req.path,
     };
 
     MongoClient.connect(url, function(err, db) {

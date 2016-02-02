@@ -38,7 +38,7 @@ var MongoClient = require('mongodb').MongoClient;
  exports.question2 = function(req, res, next){
   var _id = req.params.id;
   var route = req.path;
-    console.log("http://localhost:8080" + route)
+    console.log("http://localhost:2003" + route)
     console.log("zonke");
     console.log(req.body);
     console.log(_id);
@@ -75,7 +75,7 @@ var MongoClient = require('mongodb').MongoClient;
         ref_email_add: req.body.ref_email_add,
         ref_phone_number: req.body.ref_phone_number,
         relationship: req.body.relationship,
-        route:"http://localhost:8080"+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -101,8 +101,6 @@ var MongoClient = require('mongodb').MongoClient;
             });
     });
 };
-
- 
  exports.update = function(req,res,next){
  
  	// var inputData = JSON.parse(JSON.stringify(req.body));

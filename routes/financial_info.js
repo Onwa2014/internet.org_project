@@ -17,7 +17,7 @@ var MongoClient = require('mongodb').MongoClient;
 
     var applicationFields = {
         financial_support : req.body.financial_supp,
-        route:"http://localhost:8080"+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -42,10 +42,9 @@ var MongoClient = require('mongodb').MongoClient;
             })
 
             .catch(function(err){
-                // log the error to the console for now
+               // log the error to the console for now
                 console.log(err);
                 res.send(err.stack);
-            });
-    });
-});
- }
+                });
+        });
+    };
