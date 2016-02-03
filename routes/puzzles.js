@@ -7,9 +7,9 @@ var MongoClient = require('mongodb').MongoClient;
 exports.puzzles = function(req,res,next){
   var _id = req.params.id;
 
-  console.log("milonie");
-  console.log(req.body);
-  console.log(_id);
+      console.log("milonie");
+      console.log(req.body);
+      console.log(_id);
 
     var applicationFields = {
       puzzle1 : req.body.puzzle1,
@@ -24,6 +24,29 @@ exports.puzzles = function(req,res,next){
         applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
+
+var smtpTransport = nodemailer.createTransport("SMTP",{
+    service: process.env.NODEMAILER_SERVICE,
+      auth: {
+      user: process.env.basic_app,
+      pass: process.env.basic_app_key
+      }
+});
+// /*------------------SMTP Over------------------/
+var mailOptions = {
+      from: 'Attention!!! link ✔ <oyama@projectcodex.co>', // sender address
+      to: "cara@projectcodex.co", // list of receivers
+      subject: 'Link!!!  ✔', // Subject line
+      text: route + '✔', // plaintext body
+      html: '<b>applicant"s name have submitted the form ✔</b>' // html body
+};
+// now sending email by using transporter functions methods
+    smtpTransport.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+          console.log('Message sent: ' + info.response);
+    });
                 res.redirect('/');
             })
             .catch(function(err){
