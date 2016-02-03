@@ -1,13 +1,13 @@
 var express = require('express'),	
-	exphbs = require('express-handlebars'),
-	bodyParser = require('body-parser');
-  	// formPge1 = require('./routes/formPge1');
-  	MongoClient = require('mongodb').MongoClient,
+  	exphbs = require('express-handlebars'),
+    bodyParser = require('body-parser'),
+    MongoClient = require('mongodb').MongoClient,
   	mongodb = require('mongodb'),
+    nodemailer = require("nodemailer"),
     newApplicant = require('./routes/newApplicant'),
   	financial_info = require('./routes/financial_info'),
-    sponsorship = require('./routes/sponsorship');
-    about_you = require('./routes/about_you');
+    sponsorship = require('./routes/sponsorship'),
+    about_you = require('./routes/about_you'),
     puzzles = require('./routes/puzzles');
 
 var ObjectId = mongodb.ObjectId;
@@ -23,7 +23,6 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
@@ -54,7 +53,7 @@ app.post('/applicationForm',newApplicant.application);
 
 app.get("/applicationForm/question2/:id", function (req,res) {
     var route = req.path;
-    console.log("http://localhost:2003" + route)
+    console.log(process.env.basic_apps_localDaemon + route)
     res.render("question2", {_id : req.params.id });
  });
 app.post('/applicationForm/question2/:id',newApplicant.question2);
