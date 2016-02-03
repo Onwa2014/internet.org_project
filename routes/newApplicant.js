@@ -96,7 +96,7 @@ var MongoClient = require('mongodb').MongoClient;
               }
         });
 // /*------------------SMTP Over------------------/
-       var mailOptions = {
+  var mailOptions = {
       from: '<oyama@projectcodex.co>', // sender address
       to: applicationFields.email_address, // list of receivers
       subject:'Link ✔', // Subject line
