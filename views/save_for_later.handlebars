@@ -1,13 +1,27 @@
-<!--<h1>codeX Application {{first_name}} : codeX Application - Saved for Later<h1>-->
-
+<div class="content">
+<div class="row">
 <h3>Dear {{first_name}}</h3>
 
-Your application to codeX has been saved. To complete the application, go to: {{route}}
+<strong>Your application to codeX has been saved. To complete the application, go to: 
+	<br>
+<div id="wrap">
+	<small><br>{{route}}</small>
+</div></strong><br>
 
-Your application status is: <strong>{{application_status}}</strong>.<br />
-Please note: All fields must be completed in order for us to process your application.
+<small>Your application status is: <strong>{{application_status}}</strong>.</small> 
+<br/>
+ <strong>Please note: All fields must be completed in order for us to process your application.</strong> 
 
-You will be able to edit the form until the Status is COMPLETED.<br />
-We have sent you an email with the link to complete your application on this email address {{email_address}}
+<small>You will be able to edit the form until the Status is COMPLETED.<br />
+We have sent you an email with the link to complete your application on this email address {{email_address}}</small> 
 
+	</div>
+</div>
+<!--<h1>codeX Application {{first_name}} : codeX Application - Saved for Later<h1>-->
 
+<style type="text/css">
+
+#wrap {
+  width: 57em;
+}
+</style>
