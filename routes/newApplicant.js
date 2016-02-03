@@ -38,22 +38,19 @@ var MongoClient = require('mongodb').MongoClient;
  exports.question2 = function(req, res, next){
   var _id = req.params.id;
   var route = req.path;
-    console.log("http://localhost:2003" + route)
+    console.log(process.env.FREEBASICS_URL + route)
     console.log("zonke");
     console.log(req.body);
     console.log(_id);
 
     // check which button was pressed
-    
-    //console.log(req.body.nextBtn);
-    //console.log(req.body.saveForLaterBtn);
 
     var whatToDo = "";
 
     var NEXT = "nextScreen";
     var SAVE_FOR_LATER = "saveForLater";
 
-    if (req.body.nextBtn !== undefined ){
+    if (req.body.nextBtn !== undefined ){'[;/l.'
       console.log("next button pressed");
       whatToDo = NEXT;
     }
@@ -75,7 +72,7 @@ var MongoClient = require('mongodb').MongoClient;
         ref_email_add: req.body.ref_email_add,
         ref_phone_number: req.body.ref_phone_number,
         relationship: req.body.relationship,
-        route:"http://localhost:2003"+req.path,
+        route: process.env.FREEBASICS_URL+req.path,
         application_status: "In Progress"
     };
 
@@ -110,8 +107,9 @@ var MongoClient = require('mongodb').MongoClient;
  	
  };
  exports.saveforLater = function(req,res,next){
+
   var route = req.path;
-    console.log(route)
+    console.log(route.substring(0,15));
   MongoClient.connect(url, function(err, db){
     if(err){
       console.log(err,"\n");
@@ -124,9 +122,33 @@ var MongoClient = require('mongodb').MongoClient;
         "route": 1,
         "aplication_status": 1
       }); 
-      db.close();
-      return res.render('save_for_later',{
 
+var smtpTransport = nodemailer.createTransport("SMTP",{
+service: process.env.NODEMAILER_SERVICE,
+  auth: {
+  user: process.env.basic_app,
+  pass: process.env.basic_app_key
+  }
+});
+// /*------------------SMTP Over------------------/
+ var mailOptions = {
+      from: 'Attention!!! link ✔ <oyama@projectcodex.co>', // sender address
+      to: application.find({}, {
+          "email_address":1
+      }), // list of receivers
+      subject: 'Link!!!  ✔', // Subject line
+      text: route + '✔', // plaintext body
+      html: '<b>NOTE! please make sure that you use this link to continue from where you left✔</b>' // html body
+  };
+// now sending email by using transporter  functions methods
+    smtpTransport.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+          console.log('Message sent: ' + info.response);
+    });
+      db.close();
+            return res.render('save_for_later',{
       });           
   });
 };
