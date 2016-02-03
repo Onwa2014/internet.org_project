@@ -53,7 +53,7 @@ app.post('/applicationForm',newApplicant.application);
 
 app.get("/applicationForm/question2/:id", function (req,res) {
     var route = req.path;
-    console.log(process.env.basic_apps_localDaemon + route)
+    console.log(process.env.FREEBASICS_URL + route)
     res.render("question2", {_id : req.params.id });
  });
 app.post('/applicationForm/question2/:id',newApplicant.question2);
