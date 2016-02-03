@@ -1,11 +1,10 @@
 var MongoClient = require('mongodb').MongoClient;
- //var io = require('socket.io');
- mongodb = require('mongodb')
+    mongodb = require('mongodb')
 
- var ObjectId = mongodb.ObjectId;
-
+var ObjectId = mongodb.ObjectId;
  exports.sponsorship_required = function(req,res,next){
- 	var _id = req.params.id;
+
+var _id = req.params.id;
 
   console.log("vivi");
   console.log(req.body);
@@ -24,15 +23,13 @@ var MongoClient = require('mongodb').MongoClient;
       console.log("save for later button pressed")
       whatToDo = SAVE_FOR_LATER;
     }
-
     var applicationFields = {
         household_income: req.body.household_income,
         household_people: req.body.household_people,
         travel_cost:req.body.travel_cost,
-        route:"http://localhost:2003"+req.path,
+        route:process.env.FREEBASICS_URL+req.path,
         application_status: "In Progress"
     };
-
     MongoClient.connect(url, function(err, db) {
         var applications = db.collection('applications');
         applications
@@ -42,13 +39,11 @@ var MongoClient = require('mongodb').MongoClient;
                   if(whatToDo === NEXT){
                 res.redirect('/applicationForm/about_you/' + _id );
               }
-              else{
+                else{
                 // todo send email...
-                res.render("save_for_later", applicationFields)
-              }   
+                  res.render("save_for_later", applicationFields)
+                }   
             })
-
-
             .catch(function(err){
                 // log the error to the console for now
                 console.log(err);
@@ -83,7 +78,7 @@ exports.sponsorship_not_required = function(req,res,next){
         responsiblePerson_lastname: req.body.responsiblePerson_lastname,
         responsiblePerson_phoneNumber:req.body.responsiblePerson_phoneNumber,
         responsiblePerson_email:req.body.responsiblePerson_email,
-        route:"http://localhost:2003"+req.path,
+        route:process.env.FREEBASICS_URL+req.path,
         application_status: "In Progress"
     };
 
