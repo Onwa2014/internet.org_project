@@ -17,7 +17,7 @@ var MongoClient = require('mongodb').MongoClient;
 
     var applicationFields = {
         financial_support : req.body.financial_supp,
-        route:"http://localhost:2003"+req.path,
+        route:process.env.basic_apps_localDaemon+req.path,
         application_status: "In Progress"
     };
 
