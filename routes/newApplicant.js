@@ -2,6 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
  //var io = require('socket.io');
  mongodb = require('mongodb')
 
+ var nodemailer = require('nodemailer');
  var ObjectId = mongodb.ObjectId;
  
  //Connect to mongodb [ConnectionURL]
@@ -86,6 +87,29 @@ var MongoClient = require('mongodb').MongoClient;
                 res.redirect('/applicationForm/financial_info/' + _id );
               }
               else{
+
+        var smtpTransport = nodemailer.createTransport("SMTP",{
+            service: process.env.NODEMAILER_SERVICE,
+              auth: {
+              user: process.env.basic_app,
+              pass: process.env.basic_app_key
+              }
+        });
+// /*------------------SMTP Over------------------/
+       var mailOptions = {
+      from: '<oyama@projectcodex.co>', // sender address
+      to: applicationFields.email_address, // list of receivers
+      subject:'Link ✔', // Subject line
+      text: 'Make sure you keep this in order to continue with the form ✔', // plaintext body
+      html: '<b>Continue to fill in the form by using the url!</b><br>'+process.env.FREEBASICS_URL+route+' ✔' // html body
+  };
+        // now sending email by using transporter functions methods
+    smtpTransport.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
                 // todo send email...
                 res.render("save_for_later", applicationFields)
               }
@@ -111,6 +135,7 @@ var MongoClient = require('mongodb').MongoClient;
   var route = req.path;
     console.log(route.substring(0,15));
   MongoClient.connect(url, function(err, db){
+
     if(err){
       console.log(err,"\n");
     }
@@ -123,30 +148,6 @@ var MongoClient = require('mongodb').MongoClient;
         "aplication_status": 1
       }); 
 
-var smtpTransport = nodemailer.createTransport("SMTP",{
-service: process.env.NODEMAILER_SERVICE,
-  auth: {
-  user: process.env.basic_app,
-  pass: process.env.basic_app_key
-  }
-});
-// /*------------------SMTP Over------------------/
- var mailOptions = {
-      from: 'Attention!!! link ✔ <oyama@projectcodex.co>', // sender address
-      to: application.find({}, {
-          "email_address":1
-      }), // list of receivers
-      subject: 'Link!!!  ✔', // Subject line
-      text: route + '✔', // plaintext body
-      html: '<b>NOTE! please make sure that you use this link to continue from where you left✔</b>' // html body
-  };
-// now sending email by using transporter  functions methods
-    smtpTransport.sendMail(mailOptions, function(error, info){
-        if(error){
-            return console.log(error);
-        }
-          console.log('Message sent: ' + info.response);
-    });
       db.close();
             return res.render('save_for_later',{
       });           
