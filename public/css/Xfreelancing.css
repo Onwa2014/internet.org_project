@@ -24,6 +24,7 @@ body{background:radial-gradient(ellipse at center, #4AE40A 0%, #2B737C 84%, #4E9
 section.page-heading{background:url(/img/apply.jpg) no-repeat;background-size:cover;opacity:.9;padding:15px;border-radius:0.5em;margin-bottom:20px;}
 div .opt{resize:horizontal;width:0px;}
 .question{overflow:auto;}
+span.note{background-color: #DAD4BF;border-radius: 5.1px;}
 .logo img{height:60px;width:91px;}
 .container{width:100%;display:block;box-shadow:0px 0px 32px 0px black;position:inherit;justify-content:center;}
 .mobile-layout{background:transparent;height:60px;display:-webkit-box;display:flex;display:-ms-flexbox;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;}
