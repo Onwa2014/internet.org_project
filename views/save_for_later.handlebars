@@ -4,24 +4,17 @@
 
 <strong>Your application to codeX has been saved. To complete the application, go to: 
 	<br>
-<div id="wrap">
-	<small><br>{{route}}</small>
-</div></strong><br>
+<div>
+	<small class="route"><br><a href="{{route}}">{{route}}</a></small>
+</div></strong>
+<br>
 
 <small>Your application status is: <strong><span class="note">{{application_status}}</span></strong>.</small> 
 <br/>
- <strong><span class="note">Please note:</span>  All fields must be completed in order for us to process your application.</strong> 
+ <strong><span class="note">Please note:</span>All fields must be completed in order for us to process your application.</strong> 
 
 <small>You will be able to edit the form until the Status is COMPLETED.<br />
-We have sent you an email with the link to complete your application on this email address <span class="note">{{email_address}}</span></small> 
+We have sent you an email with the link to complete your application on this email address<span class="note">{{email_address}}</span></small> 
 
 	</div>
 </div>
-<!--<h1>codeX Application {{first_name}} : codeX Application - Saved for Later<h1>-->
-
-<style type="text/css">
-
-#wrap {
-  width: 57em;
-}
-</style>
