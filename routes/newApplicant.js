@@ -101,7 +101,7 @@ var MongoClient = require('mongodb').MongoClient;
       to: applicationFields.email_address, // list of receivers
       subject:'Link ✔', // Subject line
       text: 'Make sure you keep this in order to continue with the form ✔', // plaintext body
-      html: '<b>Continue to fill in the form by using the url!</b><br>'+process.env.FREEBASICS_URL+route+' ✔' // html body
+      html: '<b>Continue to fill in the form by using the url!</b>'+'<br><br>'+process.env.FREEBASICS_URL+route+' ✔' // html body
   };
         // now sending email by using transporter functions methods
     smtpTransport.sendMail(mailOptions, function(error, info){
@@ -127,8 +127,6 @@ var MongoClient = require('mongodb').MongoClient;
  	// var inputData = JSON.parse(JSON.stringify(req.body));
  	// console.log(req.body);
  	console.log("Aphelele")
- 
- 	
  };
  exports.saveforLater = function(req,res,next){
 
