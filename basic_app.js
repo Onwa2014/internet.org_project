@@ -5,7 +5,7 @@ var express = require('express'),
   	mongodb = require('mongodb'),
     nodemailer = require("nodemailer"),
     newApplicant = require('./routes/newApplicant'),
-  	financial_info = require('./routes/financial_info'),
+  	Financial_info = require('./routes/financial_info'),
     sponsorship = require('./routes/sponsorship'),
     about_you = require('./routes/about_you'),
     puzzles = require('./routes/puzzles');
@@ -26,7 +26,8 @@ app.use(express.static('public'));
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
- 
+ var financial_info = new Financial_info(url);
+
  var paths = {
     "question1" : "question2",
     "question2" : "about_you",
@@ -41,8 +42,6 @@ app.get("/", function (req,res) {
     res.render("home")
 });
 app.get('/save_for_later',newApplicant.saveforLater);
-    
-
 app.get('/applicationForm',function (req,res, next){
     var route = req.path;
     console.log(route)
