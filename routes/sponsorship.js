@@ -2,15 +2,22 @@ var MongoClient = require('mongodb').MongoClient;
     mongodb = require('mongodb')
 
 var ObjectId = mongodb.ObjectId;
- exports.sponsorship_required = function(req,res,next){
 
-var _id = req.params.id;
+module.exports = function(url){
+
+
+    this.sponsorship_required = sponsorship_required;
+    this.sponsorship_not_required = sponsorship_not_required;
+
+ function sponsorship_required(req,res,next){
+
+  var _id = req.params.id;
 
   console.log("vivi");
   console.log(req.body);
   console.log(_id);
 
-      var whatToDo = "";
+    var whatToDo = "";
 
     var NEXT = "nextScreen";
     var SAVE_FOR_LATER = "saveForLater";
@@ -32,10 +39,10 @@ var _id = req.params.id;
     };
     MongoClient.connect(url, function(err, db) {
         var applications = db.collection('applications');
-        applications
+            applications
             .updateOne( { _id : ObjectId(_id) }, {$set : applicationFields})
             .then(function(result){
-                  //res.redirect('/applicationForm/about_you/' + _id ); 
+
                   if(whatToDo === NEXT){
                 res.redirect('/applicationForm/about_you/' + _id );
               }
@@ -50,9 +57,9 @@ var _id = req.params.id;
                 res.send(err.stack);
             });
     });
-};
+  };
 
-exports.sponsorship_not_required = function(req,res,next){
+    function sponsorship_not_required(req,res,next){
 	var _id = req.params.id;
 
   console.log("iviwe");
@@ -92,6 +99,8 @@ exports.sponsorship_not_required = function(req,res,next){
                 res.redirect('/applicationForm/about_you/' + _id );
               }
               else{
+
+
                 // todo send email...
                 res.render("save_for_later", applicationFields)
               }    
@@ -103,5 +112,6 @@ exports.sponsorship_not_required = function(req,res,next){
                 res.send(err.stack);
             });
     });
+  };
 };
 
