@@ -17,12 +17,9 @@ module.exports = function(url){
   console.log(req.body);
   console.log(_id);
     
-
-
-
     var applicationFields = {
         financial_support : req.body.financial_supp,
-        route:"http://localhost:2003"+req.path,
+        route:process.env.FREEBASICS_URL+req.path,
         application_status: "In Progress"
     };
 
