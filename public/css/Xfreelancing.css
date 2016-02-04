@@ -133,3 +133,4 @@ footer small.shrinked{color:#6d6d6d;font-size:small;font-family:sans-serif;line-
 .info img{
 	height: 10%;
 }
+.route {display: inline-block;margin-bottom: 5%;font-weight: lighter;text-decoration: underline;font-size: x-small;}
