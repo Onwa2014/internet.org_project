@@ -10,8 +10,7 @@ module.exports = function(url){
 
   function fin_info(req,res,next) {
 
-
-    var _id = req.params.id;
+  var _id = req.params.id;
 
   console.log("yolanda");
   console.log(req.body);
@@ -50,6 +49,4 @@ module.exports = function(url){
                 });
         });
     };
-
-
 }
