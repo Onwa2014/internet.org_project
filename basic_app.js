@@ -6,9 +6,9 @@ var express = require('express'),
     nodemailer = require("nodemailer"),
     newApplicant = require('./routes/newApplicant'),
   	Financial_info = require('./routes/financial_info'),
-    sponsorship = require('./routes/sponsorship'),
-    about_you = require('./routes/about_you'),
-    puzzles = require('./routes/puzzles');
+    Sponsorship = require('./routes/sponsorship'),
+    About_you = require('./routes/about_you'),
+    Puzzles = require('./routes/puzzles');
 
 var ObjectId = mongodb.ObjectId;
 
@@ -26,7 +26,11 @@ app.use(express.static('public'));
 
  // Connection URL 
  var url = process.env.MONGO_DB_URL || 'mongodb://localhost:27017/free_basics';
+
  var financial_info = new Financial_info(url);
+ var sponsorship = new Sponsorship(url);
+ var about_you = new About_you(url);
+ var puzzles = new Puzzles(url);
 
  var paths = {
     "question1" : "question2",
