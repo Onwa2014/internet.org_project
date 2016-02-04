@@ -4,9 +4,14 @@ var MongoClient = require('mongodb').MongoClient;
 
  var ObjectId = mongodb.ObjectId;
 
- exports.fin_info = function function_name (req,res,next) {
+module.exports = function(url){
+  
+  this.fin_info = fin_info;
 
- 	  var _id = req.params.id;
+  function fin_info(req,res,next) {
+
+
+    var _id = req.params.id;
 
   console.log("yolanda");
   console.log(req.body);
@@ -17,7 +22,7 @@ var MongoClient = require('mongodb').MongoClient;
 
     var applicationFields = {
         financial_support : req.body.financial_supp,
-        route:process.env.basic_apps_localDaemon+req.path,
+        route:"http://localhost:2003"+req.path,
         application_status: "In Progress"
     };
 
@@ -48,3 +53,6 @@ var MongoClient = require('mongodb').MongoClient;
                 });
         });
     };
+
+
+}
