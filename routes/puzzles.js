@@ -1,10 +1,14 @@
 var MongoClient = require('mongodb').MongoClient;
+var nodemailer = require('nodemailer');
  //var io = require('socket.io');
  mongodb = require('mongodb')
 
  var ObjectId = mongodb.ObjectId;
 
-exports.puzzles = function(req,res,next){
+module.exports = function(url){
+  this.puzzles = puzzles;
+
+function puzzles(req,res,next){
   var _id = req.params.id;
 
       console.log("milonie");
@@ -16,7 +20,7 @@ exports.puzzles = function(req,res,next){
       puzzle2 : req.body.puzzle2,
       heard_about_codex: req.body.heard_about_codex,
       application_status:req.body.application_status,
-      route:"http://localhost:2003"+req.path,
+      route:process.env.FREEBASICS_URL+req.path,
     };
 
     MongoClient.connect(url, function(err, db) {
@@ -37,7 +41,7 @@ var mailOptions = {
       from: 'Attention!!! link ✔ <oyama@projectcodex.co>', // sender address
       to: "cara@projectcodex.co", // list of receivers
       subject: 'Link!!!  ✔', // Subject line
-      text: route + '✔', // plaintext body
+      // text: route + '✔', // plaintext body
       html: '<b>applicant"s name have submitted the form ✔</b>' // html body
 };
 // now sending email by using transporter functions methods
@@ -55,4 +59,5 @@ var mailOptions = {
                 res.send(err.stack);
             });
     });
+  };
 };
