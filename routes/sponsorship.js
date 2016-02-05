@@ -5,7 +5,6 @@ var ObjectId = mongodb.ObjectId;
 
 module.exports = function(url){
 
-
     this.sponsorship_required = sponsorship_required;
     this.sponsorship_not_required = sponsorship_not_required;
 
