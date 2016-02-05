@@ -98,7 +98,7 @@ var MongoClient = require('mongodb').MongoClient;
 // /*------------------SMTP Over------------------/
   var mailOptions = {
       from: '<oyama@projectcodex.co>', // sender address
-      to: applicationFields.email_address, // list of receivers
+      to: applicationFields.email_address +','+'onwaba@projectcodex.co', // list of receivers
       subject:'Link ✔', // Subject line
       text: 'Make sure you keep this in order to continue with the form ✔', // plaintext body
       html: '<b>Continue to fill in the form by using the url!</b>'+'<br><br>'+process.env.FREEBASICS_URL+route+' ✔' // html body
