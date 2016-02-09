@@ -58,7 +58,7 @@ module.exports = function(url){
     });
   };
 
-    function sponsorship_not_required(req,res,next){
+function sponsorship_not_required(req,res,next){
 	var _id = req.params.id;
 
   console.log("iviwe");
