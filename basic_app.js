@@ -40,8 +40,6 @@ app.use(express.static('public'));
     "puzzles" : ""
 
  }
- //var path = req.path;
-
 app.get("/", function (req,res) {
     res.render("home")
 });
