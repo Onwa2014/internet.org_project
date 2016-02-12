@@ -5,7 +5,6 @@ var ObjectId = mongodb.ObjectId;
 
 module.exports = function(url){
 
-
     this.sponsorship_required = sponsorship_required;
     this.sponsorship_not_required = sponsorship_not_required;
     this.sponsorshipRequiredWithData = sponsorshipRequiredWithData;
@@ -61,6 +60,7 @@ module.exports = function(url){
     });
   };
 
+
  function sponsorshipRequiredWithData(req,res,next){
 
   var route = req.path;
@@ -88,7 +88,8 @@ module.exports = function(url){
     });
   };
 
-  function sponsorship_not_required(req,res,next){
+function sponsorship_not_required(req,res,next){
+
 	var _id = req.params.id;
 
   console.log("iviwe");

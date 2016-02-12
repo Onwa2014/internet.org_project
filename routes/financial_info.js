@@ -5,6 +5,32 @@ var MongoClient = require('mongodb').MongoClient;
  var ObjectId = mongodb.ObjectId;
 
 module.exports = function(url){
+
+  function sendUrlMail(id){
+
+    var smtpTransport = nodemailer.createTransport("SMTP",{
+              service: process.env.NODEMAILER_SERVICE,
+                auth: {
+                user: process.env.basic_app,
+                pass: process.env.basic_app_key
+                }
+          });
+  // /*------------------SMTP Over------------------/
+    var mailOptions = {
+        from: '<oyama@projectcodex.co>', // sender address
+        to: applicationFields.email_address +','+'onwaba@projectcodex.co', // list of receivers
+        subject:'Link ✔', // Subject line
+        text: 'Make sure you keep this in order to continue with the form ✔', // plaintext body
+        html: '<b>Continue to fill in the form by using the url!</b>'+'<br><br>'+process.env.FREEBASICS_URL+route+' ✔' // html body
+    };
+          // now sending email by using transporter functions methods
+      smtpTransport.sendMail(mailOptions, function(error, info){
+          if(error){
+              return console.log(error);
+          }
+          console.log('Message sent: ' + info.response);
+      });
+  }
   
   this.fin_info = fin_info;
   this.financial_infoWithData = financial_infoWithData;
@@ -40,10 +66,11 @@ module.exports = function(url){
                 res.redirect('/applicationForm/financial_info/' + _id );
               }
               else{
-                // todo send email...
-                res.render("save_for_later", applicationFields)
-              }   
-            })
+                              sendUrlMail(id);
+                              // todo send email...
+                              res.render("save_for_later", applicationFields)
+                            }   
+                          })
 
             .catch(function(err){
                // log the error to the console for now

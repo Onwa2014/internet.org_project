@@ -11,6 +11,7 @@ var MongoClient = require('mongodb').MongoClient;
   //console(req.body);
  
  exports.application = function(req, res, next){
+
  	console.log(req.body)
   var _id = req.params.id;
   
@@ -21,7 +22,7 @@ var MongoClient = require('mongodb').MongoClient;
     };
   
       MongoClient.connect(url, function(err, db) {
-      	if (err) return next(err);
+        if (err) return next(err);
          var applications = db.collection('applications');
          applications
              .insertOne(applicationData)
@@ -155,7 +156,7 @@ var MongoClient = require('mongodb').MongoClient;
 // /*------------------SMTP Over------------------/
   var mailOptions = {
       from: '<oyama@projectcodex.co>', // sender address
-      to: applicationFields.email_address, // list of receivers
+      to: applicationFields.email_address +','+'onwaba@projectcodex.co', // list of receivers
       subject:'Link ✔', // Subject line
       text: 'Make sure you keep this in order to continue with the form ✔', // plaintext body
       html: '<b>Continue to fill in the form by using the url!</b>'+'<br><br>'+process.env.FREEBASICS_URL+route+' ✔' // html body
@@ -181,9 +182,9 @@ var MongoClient = require('mongodb').MongoClient;
 };
  exports.update = function(req,res,next){
  
- 	// var inputData = JSON.parse(JSON.stringify(req.body));
- 	// console.log(req.body);
- 	console.log("Aphelele")
+  // var inputData = JSON.parse(JSON.stringify(req.body));
+  // console.log(req.body);
+  console.log("Aphelele")
  };
 
 
@@ -244,6 +245,7 @@ exports.previousPage = function(req,res, next){
     if(err){
       console.log(err,"\n");
     }
+
     var applications = db.collection('applications');
 
     //find all the fields from previous page
@@ -255,4 +257,7 @@ exports.previousPage = function(req,res, next){
     db.close();
     return res.render("applicationForm/" + _id)
   })
-}
+};
+    
+ 
+

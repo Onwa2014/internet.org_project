@@ -91,7 +91,6 @@ form .question input[type="tel"]:focus ~ label{-moz-transform:translate(0, -35px
 form .question input[type="tel"]:valid ~ label{text-transform:uppercase;font-style:italic;-moz-transform:translate(5px, -35px) scale(0.6);-ms-transform:translate(5px, -35px) scale(0.6);-webkit-transform:translate(5px, -35px) scale(0.6);transform:translate(5px, -35px) scale(0.6);}
 input{resize:horizontal;width:140px;}
 input:active{width:auto;}
-input:focus{min-width:140px;}
 .transition, form button, form .question label, form .question input[type="text"]{-moz-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-o-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-webkit-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);}
 .transition, form button, form .question label, form .question input[type="email"]{-moz-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-o-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-webkit-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);}
 .transition, form button, form .question label, form .question textarea[type="text"]{-moz-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-o-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-webkit-transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);transition:all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);}
@@ -129,8 +128,4 @@ footer small.shrinked{color:#6d6d6d;font-size:small;font-family:sans-serif;line-
 }
 .info{ display: inline-block;color: rgba(72, 56, 56, 0.91);border-radius: 50%;background: rgb(220, 220, 220);overflow: hidden;transition: color .3s;
 }
-
-.info img{
-	height: 10%;
-}
-.route {display: inline-block;margin-bottom: 5%;font-weight: lighter;text-decoration: underline;font-size: x-small;}
+.info img{height: 10%;}
