@@ -8,6 +8,8 @@ module.exports = function(url){
 
     this.sponsorship_required = sponsorship_required;
     this.sponsorship_not_required = sponsorship_not_required;
+    this.sponsorshipRequiredWithData = sponsorshipRequiredWithData;
+    this.sponsorshipNotRequiredWithData = sponsorshipNotRequiredWithData;
 
  function sponsorship_required(req,res,next){
 
@@ -59,7 +61,34 @@ module.exports = function(url){
     });
   };
 
-    function sponsorship_not_required(req,res,next){
+ function sponsorshipRequiredWithData(req,res,next){
+
+  var route = req.path;
+  console.log(route);
+  
+  var _id = req.params.id;
+
+  MongoClient.connect(url, function(err, db){
+      if(err){
+        console.log(err,"\n");
+      }
+      else{
+        var applications = db.collection('applications');   
+        // what I am looking for...
+        applications.findOne({ _id : ObjectId(_id)  }, function(err, data){
+          
+          console.log(err);
+          console.log(data);
+
+          res.render('sponsorship_required', data);
+          db.close();
+          return;
+        }); 
+      }
+    });
+  };
+
+  function sponsorship_not_required(req,res,next){
 	var _id = req.params.id;
 
   console.log("iviwe");
@@ -111,6 +140,35 @@ module.exports = function(url){
                 console.log(err);
                 res.send(err.stack);
             });
+    });
+  };
+
+
+
+ function sponsorshipNotRequiredWithData(req,res,next){
+
+  var route = req.path;
+  console.log(route);
+  
+  var _id = req.params.id;
+
+  MongoClient.connect(url, function(err, db){
+      if(err){
+        console.log(err,"\n");
+      }
+      else{
+        var applications = db.collection('applications');   
+        // what I am looking for...
+        applications.findOne({ _id : ObjectId(_id)  }, function(err, data){
+          
+          console.log(err);
+          console.log(data);
+
+          res.render('sponsorship_not_required', data);
+          db.close();
+          return;
+        }); 
+      }
     });
   };
 };

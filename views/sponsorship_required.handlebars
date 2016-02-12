@@ -6,31 +6,31 @@
 	      	<form action="/applicationForm/sponsorship_required/{{_id}}" method="POST">
 				<div class="personalHd"><strong>WHAT IS YOUR HOUSEHOLD INCOME ?</strong></div>
 				  	<div class="question">
-				    	<input type="text" name="household_income" maxlength="10"  required/>
+				    	<input type="text" name="household_income" value="{{household_income}}"maxlength="10"  required/>
 				    	<label>Household income</label>
 				    	<xsmall>What is the total amount earned by people in your household</xsmall>
 				    </div>
 				<div class="personalHd"><strong>HOW MANY PEOPLE LIVE IN YOUR HOUSEHOLD?</strong></div>
 				<br>
 				  	<div class="question">
-				    	<input type="text" name="household_people" maxlength="2" required/>
+				    	<input type="text" name="household_people" value="{{household_people}}" maxlength="2" required/>
 				    	<label>Number of people</label>
 				    </div>
 				<div class="personalHd"><strong>HOW WILL YOU COVER YOUR TRAVEL COST TO codeX?</strong></div>
 				<br>
 				  	<div class="question">
-				    	<input type="text" name="travel_cost" maxlength="200" required/>
+				    	<input type="text" name="travel_cost" value="{{travel_cost}}" maxlength="200" required/>
 				    	<label>Travel cost</label>
 				    	<xsmall>Depending on where you live, you may need to travel by train,bus, or MyCiti.</xsmall>
 				    </div>
  	<div class="form-pagebreak">
-<li><button class="saveForLater" name="saveForLaterBtn">Save for later</button></li>  
+<button class="saveForLater" name="saveForLaterBtn">Save for later</button>
 	</div> 
 			<br>
 	<div class="form-pagebreak">
-<li><button class="back"><a href="/applicationForm"></span>Back</a></button>
+<button class="back"><a href="/applicationForm/financial_info/{{_id}}"></span>Back</a></button>
 <button class="next" name="nextBtn">next</button>
-</li>
+
 	</div>
 		</ol>			
 			</form>

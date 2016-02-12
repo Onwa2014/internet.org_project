@@ -6,6 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 
 module.exports = function(url){
   this.aboutYou = aboutYou;
+  this.aboutYouWithData = aboutYouWithData;
 
   function aboutYou(req,res,next){
   	var _id = req.params.id;
@@ -59,4 +60,32 @@ module.exports = function(url){
               });
       });
     };
+
+ function aboutYouWithData(req,res,next){
+
+  var route = req.path;
+  console.log(route);
+  
+  var _id = req.params.id;
+
+  MongoClient.connect(url, function(err, db){
+      if(err){
+        console.log(err,"\n");
+      }
+      else{
+        var applications = db.collection('applications');   
+        // what I am looking for...
+        applications.findOne({ _id : ObjectId(_id)  }, function(err, data){
+          
+          console.log(err);
+          console.log(data);
+
+          res.render('about_you', data);
+          db.close();
+          return;
+        }); 
+      }
+    });
+  };
 };
+

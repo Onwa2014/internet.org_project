@@ -7,6 +7,7 @@ var MongoClient = require('mongodb').MongoClient;
 module.exports = function(url){
   
   this.fin_info = fin_info;
+  this.financial_infoWithData = financial_infoWithData;
 
   function fin_info(req,res,next) {
 
@@ -21,6 +22,8 @@ module.exports = function(url){
         route:process.env.FREEBASICS_URL+req.path,
         application_status: "In Progress"
     };
+     
+
 
     MongoClient.connect(url, function(err, db) {
         var applications = db.collection('applications');
@@ -49,4 +52,42 @@ module.exports = function(url){
                 });
         });
     };
+    function financial_infoWithData(req,res,next){
+
+  var route = req.path;
+  console.log(route);
+  
+  var _id = req.params.id;
+
+
+  MongoClient.connect(url, function(err, db){
+      if(err){
+        console.log(err,"\n");
+      }
+      else{
+        var applications = db.collection('applications');   
+        // what I am looking for...
+        applications.findOne({ _id : ObjectId(_id)  }, function(err, data){
+            
+          if(err)
+            return next(err);
+          
+
+          // we default to no financial support needed
+          data.financialSupportYes = "";
+          data.financialSupportNo  = "checked";
+
+          if(data.financial_support === 'yes'){
+            data.financialSupportYes = "checked";
+            data.financialSupportNo  = "";
+          }
+
+          res.render('financial_info', data);
+          //cleanup
+          db.close();
+          return;
+        }); 
+      }
+  });
+};
 }

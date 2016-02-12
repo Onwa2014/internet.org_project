@@ -15,14 +15,14 @@ If you've done programming at school, university, or in your own time, tell us a
     <form action="/applicationForm" method="POST">
             <label class="text-content" id="label_18" for="input_18"><strong>Have you tried coding before?</strong></label>
           <div class="">
-                  <input type="radio" class="ques1" name="coding_experience" value="No,not yet" required>No, not yet <br>
-                  <input type="radio" class="ques1" name="coding_experience" value="Yes, a little" required>Yes, a little <br>
-                  <input type="radio" class="ques1" name="coding_experience" value="Yes,quite a bit" required>Yes, quite a bit <br>
+                  <input type="radio" class="ques1" name="coding_experience"  value="No,not yet" {{codingExperienceNorequired}}>No, not yet <br>
+                  <input type="radio" class="ques1" name="coding_experience" value="Yes, a little" {{codingExperienceYesAbit}}required>Yes, a little <br>
+                  <input type="radio" class="ques1" name="coding_experience" value="Yes,quite a bit"{{codingExperienceNoYesQuite}} required>Yes, quite a bit <br>
           </div>
           <br>
               <label class="text-content" id="label_18" for="input_18"><strong>If you already have lots of coding experience, tell us about it here:</strong>
               </label>
-              <textarea type="text" name="coding_experience_details" rows="3,5" id="myTextArea" id="input_18" class="form-textarea" ></textarea>
+              <textarea type="text" name="coding_experience_details"rows="3,5" id="myTextArea" id="input_18" class="form-textarea" >{{coding_experience_details}}</textarea>
        </div>
         <div id="cid_15" class="form-input-wide">
               <div id="text_15" class="form-html">
@@ -44,7 +44,7 @@ If you've done programming at school, university, or in your own time, tell us a
         </label>
           <div id="cid_50" class="form-input-wide jf-required">
             <span class="form-sub-label-container">
-              <input type="text" class="inputOpt" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="" required>
+              <input type="text" class="inputOpt" data-type="email" placeholder="codecademy email address" id="input_50" name="codecademyEmail" size="30" value="{{codecademyEmail}}" required>
               <label class="text-content" for="input_50" ><br><small>Tell us your email address that you used to register on codecademy.com courses. We will send you an invite so that we can see how you are progressing through Codecademy.</small></label>
             </span>
           </div>

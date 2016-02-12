@@ -38,44 +38,41 @@ app.use(express.static('public'));
     "about_you" : "financial_info",
     "financial_info":"puzzles",
     "puzzles" : ""
+ };
 
- }
  //var path = req.path;
 
 app.get("/", function (req,res) {
     res.render("home")
 });
-app.get('/save_for_later',newApplicant.saveforLater);
+
+//app.get('/save_for_later',newApplicant.saveforLater);
+
 app.get('/applicationForm',function (req,res, next){
     var route = req.path;
     console.log(route)
-    res.render('question1' );
+    res.render('question1');
 });
+app.get('/applicationForm/:id', newApplicant.question1WithData);
 
 app.post('/applicationForm',newApplicant.application);
 
-app.get("/applicationForm/question2/:id", function (req,res) {
-    var route = req.path;
-    console.log(process.env.FREEBASICS_URL + route)
-    res.render("question2", {_id : req.params.id });
- });
+
+app.get('/applicationForm/:id', function (req,res){
+  // get the data from the database
+  res.render('question1', {_id : req.params.id});
+});
+
+app.get("/applicationForm/question2/:id", newApplicant.question2WithData);
+
 app.post('/applicationForm/question2/:id',newApplicant.question2);
 	
 app.get("/learn", function (req,res) {
   res.render("learn")
 });
-app.get("/applicationForm/financial_info/:id", function (req,res) {
-     var route = req.path;
-    console.log("http:/" + route)
-     res.render("financial_info", {_id : req.params.id });
-});
+app.get("/applicationForm/financial_info/:id", financial_info.financial_infoWithData);
 app.post('/applicationForm/financial_info/:id',financial_info.fin_info);
 
-app.get('/applicationForm/sponsorship_required/:id',function (req,res){
-  var route = req.path;
-  console.log("http:/" + route)
-  res.render("sponsorship_required", {_id : req.params.id });
-});
 
 app.get('/aboutUs',function (req,res){
   res.render("about_codex");
@@ -93,22 +90,17 @@ app.get('/when/info',function (req,res){
   res.render("whenInfo");
 });
 
+app.get("/applicationForm/sponsorship_required/:id",sponsorship.sponsorshipRequiredWithData);
+
 app.post('/applicationForm/sponsorship_required/:id', sponsorship.sponsorship_required);
   
-app.get('/applicationForm/sponsorship_not_required/:id',function (req,res){
-  var route = req.path;
-  console.log("http:/" + route)
-  res.render("sponsorship_not_required", {_id : req.params.id });
-});
+app.get('/applicationForm/sponsorship_not_required/:id',sponsorship.sponsorshipNotRequiredWithData);
 
 app.post('/applicationForm/sponsorship_not_required/:id', sponsorship.sponsorship_not_required); 
   
-app.get("/applicationForm/about_you/:id", function (req,res) {
-      var route = req.path;
-      console.log("http:/" + route)
-     res.render("about_you",{_id: req.params.id});
-});
-app.post('/applicationForm/about_you/:id',about_you.aboutYou); 
+app.get("/applicationForm/about_you/:id", about_you.aboutYouWithData);
+
+app.post('/applicationForm/about_you/:id', about_you.aboutYou); 
   
 app.get("/applicationForm/puzzles/:id", function (req,res) {
     var route = req.path;

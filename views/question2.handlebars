@@ -8,44 +8,44 @@
 <div class="personalHd"><strong>YOUR FULL NAME</strong></div>
 				<div class="person" >
 			  	<div class="question" >
-				    	<input type="text" maxlength="40"  name="first_name"required/>
+				    	<input type="text" maxlength="40"  name="first_name" value="{{first_name}}"/>
 				    	<label>First Name</label>
 				  	</div>
 				  	<div class="question" >
-				    	<input type="text" maxlength="40" name="last_name" required/>
+				    	<input type="text" maxlength="40" name="last_name" value="{{last_name}}" />
 				    	<label>Last Name</label>
 				  	</div>
 				  	</div>
 <div class="personalHd"><strong>ID NUMBER</strong></div>
 				  	<div class="question" >
-				    	<input type="text" name="id_number" minlength="13" maxlength="13" required/>
+				    	<input type="text" name="id_number" value="{{id_number}}" minlength="13" maxlength="13" />
 				    	<label>ID number</label>
 				  	</div>
 <div class="personalHd"><strong>YOUR EMAIL ADDRESS</strong></div>
 				  	<div class="question" >
-				    	<input type="text" maxlength="40" name="email_address" required/>
+				    	<input type="text" maxlength="40" name="email_address" value="{{email_address}}" />
 				    	<label>Email Address</label>
 				  	</div>
 <div class="personalHd"><strong>YOUR PHONE NUMBER</strong></div>
 				  	<div class="question" >
-				    	<input type="text" name="phone_number" minlength="10" maxlength="11" required/>
+				    	<input type="text" name="phone_number" value="{{phone_number}}" minlength="10" maxlength="11" />
 				    	<label>Phone no:</label>
 				  	</div>
 
 <div class="personalHd"><strong>YOUR DATE OF BIRTH</strong></div>
 				  	<div class="question" >
-				    	<input type="date" name="date_of_birth" required/>
+				    	<input type="date" name="dateofbirth" value="{{dateofbirth}}" />
 				  	</div>
 
 <div class="personalHd"><strong>CITY YOU LIVE IN</strong></div>
 				  	<div class="question" >
-				    	<input type="text" maxlength="40" name="city" required/>
+				    	<input type="text" maxlength="40" name="city" value="{{city}}" />
 				    	<label>City</label>
 				    	<xsmall>CodeX is a full time course and is currently running in Cape Town. All participants must be in the Cape Town area.</xsmall>
 				  	</div>
 <div class="personalHd"><strong>EDUCATION AND EXPERIENCE</strong></div>
 				  		<div class="question">
-				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" rows="3"></textarea>
+				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" rows="3">{{education_and_experience}}</textarea>
 				  		<xsmall>Tell us what level of education you have,where you studied and whether you have experience any field.</xsmall>
 				  		</div>
 
@@ -57,30 +57,30 @@
 				  		<br>
 <div class="personalHd"><strong>REFERENCE NAME AND SURNAME</strong></div>
 				  		<div class="question">
-				    		<input type="text" maxlength="50" name ="ref_name_and_surname" required/>
+				    		<input type="text" maxlength="50" name ="ref_name_and_surname" value="{{ref_name_and_surname}}" />
 				    		<label>name and surname</label>
 				  		</div>
 
 <div class="personalHd"><strong>EMAIL ADDRESS</strong></div>
 				  		<div class="question">
-				    		<input type="text" maxlength="40" name="ref_email_add" required/>
+				    		<input type="text" maxlength="40" name="ref_email_add" value="{{ref_email_add}}" />
 				    		<label>Email Address</label>
 				    		<xsmall>Email address of your references</xsmall>
 				    	</div>
 
 <div class="personalHd"><strong>PHONE NUMBER</strong></div>
 				  		<div class="question">
-				    		<input type="text" minlength="10" maxlength="11" name="ref_phone_number" required/>
+				    		<input type="text" minlength="10" maxlength="11" name="ref_phone_number" value="{{ref_phone_number}}" />
 				    		<label>Phone no:</label>
 				  		</div>
 <div class="personalHd" ><strong> MY REFERENCE WAS MY</strong></div>
 				  		<div class="question" id="inputSpaceFix">
-       						<input type="radio" class="ques2Rads" name="relationship" value="mentor">Mentor<br />
-       						<input type="radio" class="ques2Rads" name="relationship" value="teacher">Teacher<br />
-       						<input type="radio" class="ques2Rads" name="relationship" value="employer">Employer
+       						<input type="radio" class="ques2Rads" name="relationship" value="mentor" {{relationshipMentor}}>Mentor<br />
+       						<input type="radio" class="ques2Rads" name="relationship" value="teacher"{{relationshipTeacher}}>Teacher<br />
+       						<input type="radio" class="ques2Rads" name="relationship" value="employer"{{relationshipEmployer}}>Employer
     					</div>
-					<input type="radio" class="optionalRads" name="relationship" value="other">
-       				<input type="text" class="inputOpt" maxlength="40" placeholder="Other">
+					<input type="radio" class="optionalRads" name="relationship" value="other" {{relationshipOther}}>
+       				<input type="text" class="inputOpt" maxlength="40" name="relationshipOtherName" placeholder="Other" value="{{relationshipOtherName}}">
        			<br>
        		<br>				
 	    <ol>
@@ -89,7 +89,7 @@
 	</div> 
 			<br>
 	<div class="form-pagebreak">
-<li><button class="back"><a href="/applicationForm"></span>Back</a></button>
+<li><button class="previousPage" name="backBtn"><a href="/applicationForm/{{_id}}"></span>Back</a></button>
 <button class="next" name="nextBtn">next</button>
 </li>
 	</div>

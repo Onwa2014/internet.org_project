@@ -12,12 +12,13 @@ var MongoClient = require('mongodb').MongoClient;
  
  exports.application = function(req, res, next){
  	console.log(req.body)
+  var _id = req.params.id;
   
   	var applicationData = {
-         got_experience : req.body.coding_experience,
-       	 experience : req.body.coding_experience_details,
-         codecademyEmail:req.body.codecademyEmail
-      };
+      got_experience : req.body.coding_experience,
+      experience : req.body.coding_experience_details,
+      codecademyEmail:req.body.codecademyEmail
+    };
   
       MongoClient.connect(url, function(err, db) {
       	if (err) return next(err);
@@ -33,8 +34,55 @@ var MongoClient = require('mongodb').MongoClient;
                  res.send({});
              });
      });
- 
  };
+
+ exports.question1WithData = function(req,res,next){
+
+  var route = req.path;
+  console.log(route);
+  
+  var _id = req.params.id;
+
+  MongoClient.connect(url, function(err, db){
+      if(err){
+        console.log(err,"\n");
+      }
+      else{
+        var applications = db.collection('applications');   
+        // what I am looking for...
+        applications.findOne({ _id : ObjectId(_id)  }, function(err, data){
+          
+          if(err)
+            return next(err);
+
+          console.log(data);
+           // we default all the buttons to no
+          data.codingExperienceNo = "";
+          data.codingExperienceYesAbit  = "";
+          data.codingExperienceNoYesQuite  = "";
+          
+
+
+          if(data.got_experience === 'No,not yet'){
+            data.codingExperienceNo = "checked";
+          }
+          else if(data.got_experience === 'Yes, a little'){
+            data.codingExperienceYesAbit  = "checked";
+
+          }
+          else if(data.got_experience === 'Yes,quite a bit'){
+            data.codingExperienceNoYesQuite  = "checked";
+          }
+
+          res.render('question1', data);
+          db.close();
+          return;
+        }); 
+      }
+  });
+};
+
+
 
  exports.question2 = function(req, res, next){
   var _id = req.params.id;
@@ -50,6 +98,7 @@ var MongoClient = require('mongodb').MongoClient;
 
     var NEXT = "nextScreen";
     var SAVE_FOR_LATER = "saveForLater";
+    var BACK = "previousPage";
 
     if (req.body.nextBtn !== undefined ){'[;/l.'
       console.log("next button pressed");
@@ -58,6 +107,10 @@ var MongoClient = require('mongodb').MongoClient;
     else if (req.body.saveForLaterBtn !== undefined){
       console.log("save for later button pressed")
       whatToDo = SAVE_FOR_LATER;
+    }
+    else if(req.body.backBtn !== undefined){
+      console.log("back button pressed")
+      whatToDo = BACK;
     }
 
     var applicationFields = {
@@ -73,6 +126,7 @@ var MongoClient = require('mongodb').MongoClient;
         ref_email_add: req.body.ref_email_add,
         ref_phone_number: req.body.ref_phone_number,
         relationship: req.body.relationship,
+        relationshipOtherName: req.body.relationshipOtherName,
         route: process.env.FREEBASICS_URL+req.path,
         application_status: "In Progress"
     };
@@ -85,6 +139,9 @@ var MongoClient = require('mongodb').MongoClient;
 
               if(whatToDo === NEXT){
                 res.redirect('/applicationForm/financial_info/' + _id );
+              }
+              else if(whatToDo === BACK){
+                res.redirect('/applicationForm/:id')
               }
               else{
 
@@ -128,27 +185,74 @@ var MongoClient = require('mongodb').MongoClient;
  	// console.log(req.body);
  	console.log("Aphelele")
  };
- exports.saveforLater = function(req,res,next){
+
+
+ exports.question2WithData = function(req,res,next){
 
   var route = req.path;
-    console.log(route.substring(0,15));
-  MongoClient.connect(url, function(err, db){
+  console.log(route);
+  
+  var _id = req.params.id;
 
+  MongoClient.connect(url, function(err, db){
+      if(err){
+        console.log(err,"\n");
+      }
+      else{
+        var applications = db.collection('applications');   
+        // what I am looking for...
+        applications.findOne({ _id : ObjectId(_id)  }, function(err, data){
+          
+          if(err)
+            return next(err);
+
+          console.log(data);
+           // we default to no financial support needed
+          data.relationshipMentor = "";
+          data.relationshipTeacher  = "";
+          data.relationshipEmployer  = "";
+          data.relationshipOther  = "";
+
+
+          if(data.relationship === 'mentor'){
+            data.relationshipMentor = "checked";
+          }
+          else if(data.relationship === 'teacher'){
+            data.relationshipTeacher  = "checked";
+
+          }
+          else if(data.relationship === 'employer'){
+            data.relationshipEmployer  = "checked";
+          }
+          else if(data.relationship === 'other'){
+            data.relationshipOther  = "checked";
+            data.relationshipOtherName = data.relationshipOtherName;
+          }
+
+          res.render('question2', data);
+          db.close();
+          return;
+        }); 
+      }
+  });
+};
+
+exports.previousPage = function(req,res, next){
+  var route = req.path;
+    var _id = req.params.id;
+  MongoClient.connect(url, function(err,db){
     if(err){
       console.log(err,"\n");
     }
-      var applications = db.collection('applications');   
-      
-      // what I am looking for...
-      applications.find({}, {
-        "first_name": 1,
-        "route": 1,
-        "aplication_status": 1
-      }); 
+    var applications = db.collection('applications');
 
-      db.close();
-            return res.render('save_for_later',{
-      });           
-  });
-};
- 
+    //find all the fields from previous page
+    applications.find(ObjectId 
+       //"got_experience":1,
+       //"experience":1,
+       //"codecademyEmail":1
+    );
+    db.close();
+    return res.render("applicationForm/" + _id)
+  })
+}
