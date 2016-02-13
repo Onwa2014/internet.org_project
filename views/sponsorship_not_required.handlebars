@@ -16,12 +16,12 @@
 				    	</div>
 				    <div class="personalHd"><strong>Phone Number</strong></div>
 				  		<div class="question">
-				    		<input type="text" name="responsiblePerson_phoneNumber" value="{{responsiblePerson_phoneNumber}}"required/>
+				    		<input type="text" name="responsiblePerson_phoneNumber" value="{{responsiblePerson_phoneNumber}}" maxlength="10" pattern="^\d{10}$" required/>
 				    		<label>Phone Number</label>
 				    	</div>
 				    <div class="personalHd"><strong>Email address</strong></div>
 				  		<div class="question">
-				    		<input type="text" name="responsiblePerson_email" value="{{responsiblePerson_emai}}"required/>
+				    		<input name="responsiblePerson_email" value="{{responsiblePerson_emai}}" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
 				    		<label>Email address</label>
 				    	</div>
 
