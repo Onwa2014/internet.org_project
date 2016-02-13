@@ -19,9 +19,7 @@ module.exports = function(url,id){
                 });
 
           // call the database here... get the current applicant information from the id supplied
-
-
-
+          
         // /*------------------SMTP Over------------------/
           var mailOptions = {
               from: applicationFields.email_address, // sender address
