@@ -28,7 +28,7 @@
 				  	</div>
 <div class="personalHd"><strong>YOUR PHONE NUMBER</strong></div>
 				  	<div class="question" >
-				    	<input required type="text" name="phone_number" value="{{phone_number}}" minlength="10" maxlength="11" />
+				    	<input required type="text" name="phone_number" value="{{phone_number}}" maxlength="11" pattern="^\d{10}$"/>
 				    	<label>Phone no:</label>
 				  	</div>
 
@@ -45,7 +45,7 @@
 				  	</div>
 <div class="personalHd"><strong>EDUCATION AND EXPERIENCE</strong></div>
 				  		<div class="question">
-				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" rows="3">{{education_and_experience}}</textarea>
+				  		<textarea id="input_18" class="form-textarea" name="education_and_experience" rows="3" required>{{education_and_experience}}</textarea>
 				  		<xsmall>Tell us what level of education you have,where you studied and whether you have experience any field.</xsmall>
 				  		</div>
 
@@ -63,14 +63,14 @@
 
 <div class="personalHd"><strong>EMAIL ADDRESS</strong></div>
 				  		<div class="question">
-				    		<input required maxlength="40" name="ref_email_add" value="{{ref_email_add}}" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+				    		<input required maxlength="40" name="ref_email_add" value="{{ref_email_add}}" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
 				    		<label>Email Address</label>
 				    		<xsmall>Email address of your references</xsmall>
 				    	</div>
 
 <div class="personalHd"><strong>PHONE NUMBER</strong></div>
 				  		<div class="question">
-				    		<input required type="text" minlength="10" maxlength="11" name="ref_phone_number" value="{{ref_phone_number}}" />
+				    		<input required type="text" minlength="10" maxlength="11" name="ref_phone_number" value="{{ref_phone_number}}" pattern="^\d{10}$"/>
 				    		<label>Phone no:</label>
 				  		</div>
 <div class="personalHd" ><strong> MY REFERENCE WAS MY</strong></div>
@@ -80,14 +80,14 @@
        						<input required type="radio" class="ques2Rads" name="relationship" value="employer"{{relationshipEmployer}}>Employer
     					</div>
 					<input required type="radio" class="optionalRads" name="relationship" value="other" {{relationshipOther}}>
-       				<input required type="text" class="inputOpt" maxlength="40" name="relationshipOtherName" placeholder="Other" value="{{relationshipOtherName}}">
+       				<input type="text" class="inputOpt" maxlength="40" name="relationshipOtherName" placeholder="Other" value="{{relationshipOtherName}}">
        			<br>
        		<br>				
 	    <ol>
  	<div class="form-pagebreak">
 <li><button class="saveForLater" name="saveForLaterBtn">Save for later</button></li>  
 	</div> 
-			<br>
+	<br>
 	<div class="form-pagebreak">
 <li><button class="previousPage" name="backBtn"><a href="/applicationForm/{{_id}}"></span>Back</a></button>
 <button class="next" name="nextBtn">next</button>
