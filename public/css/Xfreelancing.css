@@ -82,6 +82,10 @@ form .question input[type="email"]:focus{outline:none;background:rgba(23, 121, 3
 form .question input[type="email"]:valid{margin-top:20px;margin-bottom:20px;}
 form .question input[type="email"]:invalid{margin-top:20px;margin-bottom:6px; }
 form .question input[type="email"]:invalid ~ label {visibility: hidden;}
+/*if email entered is invalid show text*/
+form .question input[type="email"]:invalid ~ label.invalidPop {margin-top:20px;margin-bottom:20px;}
+/*if email entered is invalid show text*/
+
 form .question input[type="email"]:focus ~ label{-moz-transform:translate(0, -35px);-ms-transform:translate(0, -35px);-webkit-transform:translate(0, -35px);transform:translate(0, -35px);}
 form .question input[type="email"]:valid ~ label{text-transform:uppercase;font-style:italic;-moz-transform:translate(5px, -35px) scale(0.6);-ms-transform:translate(5px, -35px) scale(0.6);-webkit-transform:translate(5px, -35px) scale(0.6);transform:translate(5px, -35px) scale(0.6);}
 form .question input[type="tel"]{border:1px solid #6C9816;font-size:13px;display:block;box-sizing:border-box;padding:6px 26px;border-radius:0.5em;color:#30843C;font-weight:100;letter-spacing:0.01em;position:static;}
@@ -208,12 +212,6 @@ form .question textarea[type="text"]:focus{outline:none;background:rgba(23, 121,
 form .question textarea[type="text"]:valid{margin-top:30px;margin-bottom:20px;}
 form .question textarea[type="text"]:focus ~ label{-moz-transform:translate(0, -35px);-ms-transform:translate(0, -35px);-webkit-transform:translate(0, -35px);transform:translate(0, -35px);}
 form .question textarea[type="text"]:valid ~ label{text-transform:uppercase;font-style:italic;-moz-transform:translate(5px, -35px) scale(0.6);-ms-transform:translate(5px, -35px) scale(0.6);-webkit-transform:translate(5px, -35px) scale(0.6);transform:translate(5px, -151px) scale(0.6);}
-form .question input[type="email"] {border: 1px solid #6C9816;font-size: 11px;display: block;box-sizing: border-box;padding: 8px 26px;border-radius: 2.5em;color: #30843C;font-weight: 100;letter-spacing: 0.01em;position: static;}
-form .question input[type="email"]:focus{outline:none;background:rgba(23, 121, 37, 0.44);color:white;margin-top:20px;}
-form .question input[type="email"]:valid{margin-top:20px;margin-bottom:20px;}
-form .question input[type="email"]:invalid{margin-top:20px;margin-bottom:6px;}
-form .question input[type="email"]:focus ~ label{-moz-transform:translate(0, -35px);-ms-transform:translate(0, -35px);-webkit-transform:translate(0, -35px);transform:translate(0, -35px);}
-form .question input[type="email"]:valid ~ label{text-transform:uppercase;font-style:italic;-moz-transform:translate(5px, -35px) scale(0.6);-ms-transform:translate(5px, -35px) scale(0.6);-webkit-transform:translate(5px, -35px) scale(0.6);transform:translate(5px, -35px) scale(0.6);}
 form .question input[type="tel"]{border:1px solid #6C9816;font-size:13px;display:block;box-sizing:border-box;padding:6px 26px;border-radius:0.5em;color:#30843C;font-weight:100;letter-spacing:0.01em;position:static;}
 form .question input[type="tel"]:focus{outline:none;background:rgba(23, 121, 37, 0.44);color:white;margin-top:20px;}
 form .question input[type="tel"]:valid{margin-top:20px;margin-bottom:20px;}
