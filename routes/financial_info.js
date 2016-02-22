@@ -8,8 +8,8 @@ module.exports = function(url){
     var smtpTransport = nodemailer.createTransport("SMTP",{
               service: process.env.NODEMAILER_SERVICE,
                 auth: {
-                  user: process.env.basic_app,
-                  pass: process.env.basic_app_key
+                  user: process.env.BASIC_APP,
+                  pass: process.env.BASIC_APP_KEY
                 }
     });
   // /*------------------SMTP Over------------------/
